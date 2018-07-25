@@ -2,17 +2,6 @@
 // Initialisation
 // ==========================================================================
 
-var httpRequestObserver =
-{
-  observe: function(subject, topic, data) 
-  {
-    if (topic == "http-on-modify-request") {
-      var httpChannel = subject.QueryInterface(Ci.nsIHttpChannel);
-      httpChannel.setRequestHeader("X-Auth-Token", "679038679bcd4b3b9c49b464f45cd8fc", false);
-    }
-  }
-};
-
 // Core Functions 
 dataLadder();
 dataFixture();
@@ -95,7 +84,7 @@ function dataFixture() {
 
     
     // Dummy Dev File
-    $.getJSON('http://api.football-data.org/v2/competitions/2071', function(json){
+    $.getJSON('http://api.football-data.org/v1/fixtures', function(json){
 
         console.log('fixture loaded');
         console.log(json);
@@ -116,10 +105,9 @@ function dataFixture() {
 // ====
 function dataLadder() { 
     
-    $.getJSON('https://www.openligadb.de/api/getbltable/pl/2017', function (json) {
+    $.getJSON('https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.json', function (json) {
         var round = $('.c-ladder__round');
 
-        console.log(json);
 
         // Construct the Ladder
         for (i = 0; i < json.length; i++) {

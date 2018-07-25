@@ -8,7 +8,7 @@ function dataFixture() {
 
     
     // Dummy Dev File
-    $.getJSON('http://api.football-data.org/v2/competitions/2071', function(json){
+    $.getJSON('http://api.football-data.org/v1/fixtures', function(json){
 
         console.log('fixture loaded');
         console.log(json);
