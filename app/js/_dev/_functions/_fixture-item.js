@@ -1,8 +1,8 @@
 
 function fixtureItem(array) {
 
-    var date = dateTime(array.MatchDateTimeUTC);
-    var match_status = array.MatchIsFinished;
+    var date = dateTime(array.utcDate);
+    var match_status = array.status;
 
     if (match_status == true) {
 
@@ -40,17 +40,17 @@ function fixtureItem(array) {
                     '<span class="c-date__time">' + date.time + '</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + kitImg(array.Team1.TeamName,array.Team2.TeamName,"Home") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.Team1.TeamName) + '</span>' +
+                    '<img class="js-team-img" src="' + kitImg(array.homeTeam.name,array.awayTeam.name,"Home") + '" />' +
+                    '<span class="js-team-text">' + teamAbrev(array.homeTeam.name) + '</span>' +
                     '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
-                    '<img class="js-team-img" src="' + kitImg(array.Team1.TeamName,array.Team2.TeamName,"Away") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.Team2.TeamName) + '</span>' +
+                    '<img class="js-team-img" src="' + kitImg(array.homeTeam.name,array.awayTeam.name,"Away") + '" />' +
+                    '<span class="js-team-text">' + teamAbrev(array.awayTeam.name) + '</span>' +
                     '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
-                '<div class="c-fixture__venue js-fixture-venue">' + array.Location + '</div>' +
+                '<div class="c-fixture__venue js-fixture-venue">' + '</div>' +
             '</div>'
         );
     }

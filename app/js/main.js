@@ -5,6 +5,114 @@
 // Core Functions 
 dataLadder();
 dataFixture();
+
+// Data - Fixture/Results
+
+function dataFixture() {
+
+    var self = this;
+    self.tasksURI = "http://api.football-data.org/v2/competitions/2021/matches";
+
+    self.ajax = function(uri, method, data) {
+        var request = {
+            url: uri,
+            type: method,
+            accepts: "application/json",
+            cache: false,
+            dataType: "json",
+            data: JSON.stringify(data),
+            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
+            error: function (jqXHR) {
+                console.log("ajax error " + jqXHR.status);
+            }
+
+        };
+
+        return $.ajax(request);
+    }
+
+    self.ajax(self.tasksURI, 'GET').done(function(data) {
+
+        var matches = data.matches;
+        var today = new Date;
+        var testDate = new Date('2018-04-24');
+        var currentRound = [];
+        var currentRoundNo = roundCalc(today);
+
+        $('.js-fixture-round').text(currentRoundNo);
+
+        for (i = 0; i < matches.length; i++) {
+            const element = matches[i];
+            
+            if (element.matchday == currentRoundNo) {
+                currentRound.push(element);
+            }
+        }
+
+        console.log(currentRound);
+
+        for (i = 0; i < currentRound.length; i++) {
+            const element = currentRound[i];
+
+            fixtureItem(element);
+        }
+    })
+}
+
+
+
+//
+// Data
+// ====
+function dataLadder() { 
+    
+    // $.getJSON('https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.json', function (json) {
+    //     var round = $('.c-ladder__round');
+
+
+    //     // Construct the Ladder
+    //     for (i = 0; i < json.length; i++) {
+    //         const element = json[i];
+    //         ladderItem(element, i+1);
+    //     }
+
+    // });
+
+    var self = this;
+    self.tasksURI = "http://api.football-data.org/v2/competitions/2021/standings";
+
+    self.ajax = function(uri, method, data) {
+        var request = {
+            url: uri,
+            type: method,
+            accepts: "application/json",
+            cache: false,
+            dataType: "json",
+            data: JSON.stringify(data),
+            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
+            error: function (jqXHR) {
+                console.log("ajax error " + jqXHR.status);
+            }
+
+        };
+
+        return $.ajax(request);
+    }
+
+    self.ajax(self.tasksURI, 'GET').done(function(data) {
+        // console.log(data);
+
+        var ladder = data.standings[0].table;
+        console.log(ladder);
+
+        // Construct the Ladder
+        for (i = 0; i < ladder.length; i++) {
+            const element = ladder[i];
+            ladderItem(element, i+1);
+        }
+    })
+
+}
 // ==========================================================================
 // Fixture - Functions
 // ==========================================================================
@@ -74,50 +182,71 @@ var ladder = function(){
     dogs.children('img').attr('src', 'img/teams/dogs.svg');
 
 }
+//
+// Layout - Vertically Centered
+// ==========================================================================
 
-// Data - Fixture/Results
+// ***
+// This function vertically centers an object element within 
+// its parent element by calculating the height of the parent,
+// the height of the child and adding padding to the top and 
+// bottom of the child element.
+//
+// Parent Element
+// --------------
+// The parent element must be a jQuery object.
+// eg: $('.o-vert-center')
+//
+// Child Element
+// -------------
+// The child element must be a direct child of the parent and
+// be passed through the function with only its classname.
+// eg: '.o-vert-center__object'
+// *
 
-function dataFixture() {
-    $.getJSON('https://www.openligadb.de/api/getcurrentgroup/pl', function(json){
-        $('.js-fixture-round').text(json.GroupName);
-    })
+function vertCenter(element, child) {
 
-    
-    // Dummy Dev File
-    $.getJSON('http://api.football-data.org/v1/fixtures', function(json){
-
-        console.log('fixture loaded');
-        console.log(json);
-
-            for (i = 0; i < json.length; i++) {
-                const element = json[i];
-                fixtureItem(element);
-            }
-
+    var parentHeight = element.parent().height();
+    // This will give the element the same height
+    // and line-height as it's parent container.
+    element.css({
+        'height': parentHeight + 'px',
+        'line-height': parentHeight + 'px'
     });
-
+    
+    element.children(child).css({
+        'height': element.children(child).height(),
+        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
+        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
+    });
 }
 
+function clearStyles(element, child) {
+    element.attr('style', '');
+    child.attr('style', '');
+}
+
+// Function applied to the following parent/child classes:
+// vertCenter($('.o-vert-center'), '.o-vert-center__object');
+
+// On window resize clear previous styles then re-run the function.
+$(window).on('resize', function() {
+    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
+    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
+});
 
 
 //
-// Data
-// ====
-function dataLadder() { 
-    
-    $.getJSON('https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.json', function (json) {
-        var round = $('.c-ladder__round');
+// UI - Buttons
+// ==========================================================================
 
+// Variables
+// var gitButton = document.getElementById('js-button-github');
 
-        // Construct the Ladder
-        for (i = 0; i < json.length; i++) {
-            const element = json[i];
-            ladderItem(element, i+1);
-        }
+// gitButton.addEventListener('click', function(){
+//     window.open('https://github.com/Toshibot/webapp-boilerplate', '_blank');
+// });
 
-    });
-
-}
 
 function dateTime(d) {
 
@@ -194,8 +323,8 @@ function dateTime(d) {
 
 function fixtureItem(array) {
 
-    var date = dateTime(array.MatchDateTimeUTC);
-    var match_status = array.MatchIsFinished;
+    var date = dateTime(array.utcDate);
+    var match_status = array.status;
 
     if (match_status == true) {
 
@@ -233,17 +362,17 @@ function fixtureItem(array) {
                     '<span class="c-date__time">' + date.time + '</span>' +
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
-                    '<img class="js-team-img" src="' + kitImg(array.Team1.TeamName,array.Team2.TeamName,"Home") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.Team1.TeamName) + '</span>' +
+                    '<img class="js-team-img" src="' + kitImg(array.homeTeam.name,array.awayTeam.name,"Home") + '" />' +
+                    '<span class="js-team-text">' + teamAbrev(array.homeTeam.name) + '</span>' +
                     '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
-                    '<img class="js-team-img" src="' + kitImg(array.Team1.TeamName,array.Team2.TeamName,"Away") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.Team2.TeamName) + '</span>' +
+                    '<img class="js-team-img" src="' + kitImg(array.homeTeam.name,array.awayTeam.name,"Away") + '" />' +
+                    '<span class="js-team-text">' + teamAbrev(array.awayTeam.name) + '</span>' +
                     '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
-                '<div class="c-fixture__venue js-fixture-venue">' + array.Location + '</div>' +
+                '<div class="c-fixture__venue js-fixture-venue">' + '</div>' +
             '</div>'
         );
     }
@@ -455,107 +584,29 @@ function kitImg(homename,awayname,location){
 
 // Constructs the ladder Items
 function ladderItem(array, number) {
-    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(array.TeamName);  
-    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('img').attr('src', teamImg(array.TeamName));  
-    $('.c-ladder__item-' + number + ' div.c-ladder__played').text(array.Matches);
-    $('.c-ladder__item-' + number + ' div.c-ladder__wins').text(array.Won);
-    $('.c-ladder__item-' + number + ' div.c-ladder__draws').text(array.Draw);
-    $('.c-ladder__item-' + number + ' div.c-ladder__losses').text(array.Lost);
-    $('.c-ladder__item-' + number + ' div.c-ladder__points-for').text(array.Goals);
-    $('.c-ladder__item-' + number + ' div.c-ladder__points-against').text(array.OpponentGoals);
-    $('.c-ladder__item-' + number + ' div.c-ladder__percentage').text(array.GoalDiff);
-    $('.c-ladder__item-' + number + ' div.c-ladder__points').text(array.Points);
+    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(array.team.name);  
+    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('img').attr('src', teamImg(array.team.name));  
+    $('.c-ladder__item-' + number + ' div.c-ladder__played').text(array.playedGames);
+    $('.c-ladder__item-' + number + ' div.c-ladder__wins').text(array.won);
+    $('.c-ladder__item-' + number + ' div.c-ladder__draws').text(array.draw);
+    $('.c-ladder__item-' + number + ' div.c-ladder__losses').text(array.lost);
+    $('.c-ladder__item-' + number + ' div.c-ladder__points-for').text(array.goalsFor);
+    $('.c-ladder__item-' + number + ' div.c-ladder__points-against').text(array.goalsAgainst);
+    $('.c-ladder__item-' + number + ' div.c-ladder__percentage').text(array.goalDifference);
+    $('.c-ladder__item-' + number + ' div.c-ladder__points').text(array.points);
 }
 function roundCalc(d) {
     var currentDate = new Date(d);
     var month = currentDate.getMonth();
     var date = currentDate.getDate();
+    var year = currentDate.getFullYear();
 
-    // Round 3
-    if (month == 3 && date <= 8) {
-        return 3;
+    // Round 1
+    if (month <= 8) {
+        return 1;
 
-    // Round 4    
-    } else if (month == 3 && date <= 15) {
-        return 4;
-
-    // Round 5    
-    } else if (month == 3 && date <= 25) {
-        return 5;
-
-    // Round 6
-    } else if (month == 3 && date <= 29) {
-        return 6;
-
-    // Round 7
-    } else if (month == 4 && date <= 6) {
-        return 7;
-
-    // Round 8    
-    } else if (month == 4 && date <= 13) {
-        return 8;
-
-    // Round 9
-    } else if (month == 4 && date <= 20) {
-        return 9;
-
-    // Round 10
-    } else if (month == 4 && date <= 27) {
-        return 10;
-
-    // Round 11
-    } else if (month == 4 && date <= 31 || month == 5 && date <= 3) {
-        return 11;
-
-    // Round 12
-    } else if (month == 5 && date <= 11) {
-        return 12;
-
-    // Round 13
-    } else if (month == 5 && date <= 17) {
-        return 13;
-
-    // Round 14
-    } else if (month == 5 && date <= 24) {
-        return 14;
-
-    // Round 15
-    } else if (month == 5 && date <= 31 || month == 6 && date <= 1) {
-        return 15;
-
-    // Round 16
-    } else if (month == 6 && date <= 8) {
-        return 16;
-
-    // Round 17
-    } else if (month == 6 && date <= 15) {
-        return 17;
-
-    // Round 18
-    } else if (month == 6 && date <= 22) {
-        return 18;
-
-    // Round 19
-    } else if (month == 6 && date <= 29) {
-        return 19;
-
-    // Round 20
-    } else if (month == 7 && date <= 5) {
-        return 20;
-
-    // Round 21
-    } else if (month == 7 && date <= 12) {
-        return 21;
-
-    // Round 22
-    } else if (month == 7 && date <= 19) {
-        return 22;
-
-    // Round 23
-    } else if (month == 7 && date <= 23) {
-        return 23;
-    }
-
+        
+    } 
 }
 function teamAbrev(array){
     var team = array;
@@ -601,105 +652,45 @@ function teamAbrev(array){
 
 // Applies the correct team image to the referenced team code.
 function teamImg(team) {
-    if (team == '1. FC Nürnberg') {
-        return 'img/teams/Nuernberg/Logo.png';
-    } else if (team == '1. FSV Mainz 05') {
-        return 'img/teams/Mainz/Logo.png';
-    } else if (team == 'Bayer Leverkusen') {
-        return 'img/teams/Leverkusen/Logo.png';
-    } else if (team == 'Borussia Dortmund') {
-        return 'img/teams/Dortmund/Logo.png';
-    } else if (team == 'Borussia Mönchengladbach') {
-        return 'img/teams/Gladbach/Logo.png';
-    } else if (team == 'Eintracht Frankfurt') {
-        return 'img/teams/Frankfurt/Logo.png';
-    } else if (team == 'FC Augsburg') {
-        return 'img/teams/Augsburg/Logo.png';
-    } else if (team == 'FC Bayern') {
-        return 'img/teams/Bayern/Logo.png';
-    } else if (team == 'FC Schalke 04') {
-        return 'img/teams/Schalke/Logo.png';
-    } else if (team == 'Fortuna Düsseldorf') {
-        return 'img/teams/Duesseldorf/Logo.png';
-    } else if (team == 'Hannover 96') {
-        return 'img/teams/Hannover/Logo.png';
-    } else if (team == 'Hertha BSC') {
-        return 'img/teams/Hertha/Logo.png';
-    } else if (team == 'RB Leipzig') {
-        return 'img/teams/Leipzig/Logo.png';
-    } else if (team == 'SC Freiburg') {
-        return 'img/teams/Freiburg/Logo.png';
-    } else if (team == 'TSG 1899 Hoffenheim') {
-        return 'img/teams/Hoffenheim/Logo.png';
-    } else if (team == 'VfB Stuttgart') {
-        return 'img/teams/Stuttgart/Logo.png';
-    } else if (team == 'VfL Wolfsburg') {
-        return 'img/teams/Wolfsburg/Logo.png';
-    } else if (team == 'Werder Bremen') {
-        return 'img/teams/Bremen/Logo.png';
+    if (team == 'Wolverhampton Wanderers FC') {
+        return 'img/teams/WOL/Logo.png';
+    } else if (team == 'Fulham FC') {
+        return 'img/teams/FUL/Logo.png';
+    } else if (team == 'Liverpool FC') {
+        return 'img/teams/LIV/Logo.png';
+    } else if (team == 'Manchester City FC') {
+        return 'img/teams/MCI/Logo.png';
+    } else if (team == 'Newcastle United FC') {
+        return 'img/teams/NEW/Logo.png';
+    } else if (team == 'Arsenal FC') {
+        return 'img/teams/ARS/Logo.png';
+    } else if (team == 'Chelsea FC') {
+        return 'img/teams/CHE/Logo.png';
+    } else if (team == 'Tottenham Hotspur FC') {
+        return 'img/teams/TOT/Logo.png';
+    } else if (team == 'Everton FC') {
+        return 'img/teams/EVE/Logo.png';
+    } else if (team == 'Manchester United FC') {
+        return 'img/teams/MUN/Logo.png';
+    } else if (team == 'Leicester City FC') {
+        return 'img/teams/LEI/Logo.png';
+    } else if (team == 'Burnley FC') {
+        return 'img/teams/BUR/Logo.png';
+    } else if (team == 'Huddersfield Town AFC') {
+        return 'img/teams/HUD/Logo.png';
+    } else if (team == 'Cardiff City FC') {
+        return 'img/teams/CAR/Logo.png';
+    } else if (team == 'West Ham United FC') {
+        return 'img/teams/WHU/Logo.png';
+    } else if (team == 'Southampton FC') {
+        return 'img/teams/SOU/Logo.png';
+    } else if (team == 'Crystal Palace FC') {
+        return 'img/teams/CRY/Logo.png';
+    } else if (team == 'Brighton & Hove Albion FC') {
+        return 'img/teams/BHA/Logo.png';
+    } else if (team == 'Watford FC') {
+        return 'img/teams/WAT/Logo.png';
+    } else if (team == 'AFC Bournemouth') {
+        return 'img/teams/BOU/Logo.png';
     }
 }
-//
-// Layout - Vertically Centered
-// ==========================================================================
-
-// ***
-// This function vertically centers an object element within 
-// its parent element by calculating the height of the parent,
-// the height of the child and adding padding to the top and 
-// bottom of the child element.
-//
-// Parent Element
-// --------------
-// The parent element must be a jQuery object.
-// eg: $('.o-vert-center')
-//
-// Child Element
-// -------------
-// The child element must be a direct child of the parent and
-// be passed through the function with only its classname.
-// eg: '.o-vert-center__object'
-// *
-
-function vertCenter(element, child) {
-
-    var parentHeight = element.parent().height();
-    // This will give the element the same height
-    // and line-height as it's parent container.
-    element.css({
-        'height': parentHeight + 'px',
-        'line-height': parentHeight + 'px'
-    });
-    
-    element.children(child).css({
-        'height': element.children(child).height(),
-        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
-        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
-    });
-}
-
-function clearStyles(element, child) {
-    element.attr('style', '');
-    child.attr('style', '');
-}
-
-// Function applied to the following parent/child classes:
-// vertCenter($('.o-vert-center'), '.o-vert-center__object');
-
-// On window resize clear previous styles then re-run the function.
-$(window).on('resize', function() {
-    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
-    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
-});
-
-
-//
-// UI - Buttons
-// ==========================================================================
-
-// Variables
-// var gitButton = document.getElementById('js-button-github');
-
-// gitButton.addEventListener('click', function(){
-//     window.open('https://github.com/Toshibot/webapp-boilerplate', '_blank');
-// });

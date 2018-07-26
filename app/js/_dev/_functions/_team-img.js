@@ -1,41 +1,45 @@
 
 // Applies the correct team image to the referenced team code.
 function teamImg(team) {
-    if (team == '1. FC Nürnberg') {
-        return 'img/teams/Nuernberg/Logo.png';
-    } else if (team == '1. FSV Mainz 05') {
-        return 'img/teams/Mainz/Logo.png';
-    } else if (team == 'Bayer Leverkusen') {
-        return 'img/teams/Leverkusen/Logo.png';
-    } else if (team == 'Borussia Dortmund') {
-        return 'img/teams/Dortmund/Logo.png';
-    } else if (team == 'Borussia Mönchengladbach') {
-        return 'img/teams/Gladbach/Logo.png';
-    } else if (team == 'Eintracht Frankfurt') {
-        return 'img/teams/Frankfurt/Logo.png';
-    } else if (team == 'FC Augsburg') {
-        return 'img/teams/Augsburg/Logo.png';
-    } else if (team == 'FC Bayern') {
-        return 'img/teams/Bayern/Logo.png';
-    } else if (team == 'FC Schalke 04') {
-        return 'img/teams/Schalke/Logo.png';
-    } else if (team == 'Fortuna Düsseldorf') {
-        return 'img/teams/Duesseldorf/Logo.png';
-    } else if (team == 'Hannover 96') {
-        return 'img/teams/Hannover/Logo.png';
-    } else if (team == 'Hertha BSC') {
-        return 'img/teams/Hertha/Logo.png';
-    } else if (team == 'RB Leipzig') {
-        return 'img/teams/Leipzig/Logo.png';
-    } else if (team == 'SC Freiburg') {
-        return 'img/teams/Freiburg/Logo.png';
-    } else if (team == 'TSG 1899 Hoffenheim') {
-        return 'img/teams/Hoffenheim/Logo.png';
-    } else if (team == 'VfB Stuttgart') {
-        return 'img/teams/Stuttgart/Logo.png';
-    } else if (team == 'VfL Wolfsburg') {
-        return 'img/teams/Wolfsburg/Logo.png';
-    } else if (team == 'Werder Bremen') {
-        return 'img/teams/Bremen/Logo.png';
+    if (team == 'Wolverhampton Wanderers FC') {
+        return 'img/teams/WOL/Logo.png';
+    } else if (team == 'Fulham FC') {
+        return 'img/teams/FUL/Logo.png';
+    } else if (team == 'Liverpool FC') {
+        return 'img/teams/LIV/Logo.png';
+    } else if (team == 'Manchester City FC') {
+        return 'img/teams/MCI/Logo.png';
+    } else if (team == 'Newcastle United FC') {
+        return 'img/teams/NEW/Logo.png';
+    } else if (team == 'Arsenal FC') {
+        return 'img/teams/ARS/Logo.png';
+    } else if (team == 'Chelsea FC') {
+        return 'img/teams/CHE/Logo.png';
+    } else if (team == 'Tottenham Hotspur FC') {
+        return 'img/teams/TOT/Logo.png';
+    } else if (team == 'Everton FC') {
+        return 'img/teams/EVE/Logo.png';
+    } else if (team == 'Manchester United FC') {
+        return 'img/teams/MUN/Logo.png';
+    } else if (team == 'Leicester City FC') {
+        return 'img/teams/LEI/Logo.png';
+    } else if (team == 'Burnley FC') {
+        return 'img/teams/BUR/Logo.png';
+    } else if (team == 'Huddersfield Town AFC') {
+        return 'img/teams/HUD/Logo.png';
+    } else if (team == 'Cardiff City FC') {
+        return 'img/teams/CAR/Logo.png';
+    } else if (team == 'West Ham United FC') {
+        return 'img/teams/WHU/Logo.png';
+    } else if (team == 'Southampton FC') {
+        return 'img/teams/SOU/Logo.png';
+    } else if (team == 'Crystal Palace FC') {
+        return 'img/teams/CRY/Logo.png';
+    } else if (team == 'Brighton & Hove Albion FC') {
+        return 'img/teams/BHA/Logo.png';
+    } else if (team == 'Watford FC') {
+        return 'img/teams/WAT/Logo.png';
+    } else if (team == 'AFC Bournemouth') {
+        return 'img/teams/BOU/Logo.png';
     }
 }
