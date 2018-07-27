@@ -574,6 +574,14 @@ function roundCalc(d) {
     } else if (year == "2018" && month == 8 && date <= 27){
         return 3;
 
+    // Gameday 4
+    } else if (year == "2018" && month == 8 && date <= 31 || year == "2018" && month == 9 && date <= 7){
+        return 4;
+
+    // Gameday 5
+    } else if (year == "2018" && month == 9 && date <= 17){
+        return 5;
+
     }
 }
 function teamAbrev(array){
