@@ -1,41 +1,45 @@
 function teamAbrev(array){
     var team = array;
 
-    if (team == '1. FC Nürnberg') {
-        return 'FCN';
-    } else if (team == '1. FSV Mainz 05') {
-        return 'MAI';
-    } else if (team == 'Bayer Leverkusen') {
-        return 'B04';
-    } else if (team == 'Borussia Dortmund') {
-        return 'DOR';
-    } else if (team == 'Borussia Mönchengladbach') {
-        return 'BMG';
-    } else if (team == 'Eintracht Frankfurt') {
-        return 'SGE';
-    } else if (team == 'FC Augsburg') {
-        return 'AUG';
-    } else if (team == 'FC Bayern') {
-        return 'BAY';
-    } else if (team == 'FC Schalke 04') {
-        return 'S04';
-    } else if (team == 'Fortuna Düsseldorf') {
-        return 'DU';
-    } else if (team == 'Hannover 96') {
-        return 'HAN';
-    } else if (team == 'Hertha BSC') {
-        return 'BSC';
-    } else if (team == 'RB Leipzig') {
-        return 'RBL';
-    } else if (team == 'SC Freiburg') {
-        return 'SCF';
-    } else if (team == 'TSG 1899 Hoffenheim') {
-        return 'TSG';
-    } else if (team == 'VfB Stuttgart') {
-        return 'STU';
-    } else if (team == 'VfL Wolfsburg') {
-        return 'WOB';
-    } else if (team == 'Werder Bremen') {
-        return 'SVW';
+    if (team == 'Wolverhampton Wanderers FC') {
+        return 'WOL';
+    } else if (team == 'Fulham FC') {
+        return 'FUL';
+    } else if (team == 'Liverpool FC') {
+        return 'LIV';
+    } else if (team == 'Manchester City FC') {
+        return 'MCI';
+    } else if (team == 'Newcastle United FC') {
+        return 'NEW';
+    } else if (team == 'Arsenal FC') {
+        return 'ARS';
+    } else if (team == 'Chelsea FC') {
+        return 'CHE';
+    } else if (team == 'Tottenham Hotspur FC') {
+        return 'TOT';
+    } else if (team == 'Everton FC') {
+        return 'EVE';
+    } else if (team == 'Manchester United FC') {
+        return 'MUN';
+    } else if (team == 'Leicester City FC') {
+        return 'LEI';
+    } else if (team == 'Burnley FC') {
+        return 'BUR';
+    } else if (team == 'Huddersfield Town AFC') {
+        return 'HUD';
+    } else if (team == 'Cardiff City FC') {
+        return 'CAR';
+    } else if (team == 'West Ham United FC') {
+        return 'WHU';
+    } else if (team == 'Southampton FC') {
+        return 'SOU';
+    } else if (team == 'Crystal Palace FC') {
+        return 'CRY';
+    } else if (team == 'Brighton & Hove Albion FC') {
+        return 'BHA';
+    } else if (team == 'Watford FC') {
+        return 'WAT';
+    } else if (team == 'AFC Bournemouth') {
+        return 'BOU';
     }
 }

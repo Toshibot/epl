@@ -1,203 +1,229 @@
 function kitImg(homename,awayname,location){
     
     if (location == "Home") {
-        if (homename == '1. FC Nürnberg') {
-            return 'img/teams/Nuernberg/Home.png';
+        if (homename == 'Wolverhampton Wanderers FC') {
+            return 'img/teams/WOL/Home.png';
 
-        } else if (homename == '1. FSV Mainz 05') {
-            return 'img/teams/Mainz/Home.png';
+        } else if (homename == 'Fulham FC') {
+            return 'img/teams/FUL/Home.png';
 
-        } else if (homename == 'Bayer Leverkusen') {
-            return 'img/teams/Leverkusen/Home.png';
+        } else if (homename == 'Liverpool FC') {
+            return 'img/teams/LIV/Home.png';
 
-        } else if (homename == 'Borussia Dortmund') {
-            return 'img/teams/Dortmund/Home.png';
+        } else if (homename == 'Manchester City FC') {
+            return 'img/teams/MUN/Home.png';
 
-        } else if (homename == 'Borussia Mönchengladbach') {
-            return 'img/teams/Gladbach/Home.png';
+        } else if (homename == 'Newcastle United FC') {
+            return 'img/teams/NEW/Home.png';
 
-        } else if (homename == 'Eintracht Frankfurt') {
-            return 'img/teams/Frankfurt/Home.png';
+        } else if (homename == 'Arsenal FC') {
+            return 'img/teams/ARS/Home.png';
 
-        } else if (homename == 'FC Augsburg') {
-            return 'img/teams/Augsburg/Home.png';
+        } else if (homename == 'Chelsea FC') {
+            return 'img/teams/CHE/Home.png';
 
-        } else if (homename == 'FC Bayern') {
-            return 'img/teams/Bayern/Home.png';
+        } else if (homename == 'Tottenham Hotspur FC') {
+            return 'img/teams/TOT/Home.png';
 
-        } else if (homename == 'FC Schalke 04') {
-            return 'img/teams/Schalke/Home.png';
+        } else if (homename == 'Everton FC') {
+            return 'img/teams/EVE/Home.png';
 
-        } else if (homename == 'Fortuna Düsseldorf') {
-            return 'img/teams/Duesseldorf/Home.png';
+        } else if (homename == 'Manchester United FC') {
+            return 'img/teams/MUN/Home.png';
 
-        } else if (homename == 'Hannover 96') {
-            return 'img/teams/Hannover/Home.png';
+        } else if (homename == 'Leicester City FC') {
+            return 'img/teams/LEI/Home.png';
 
-        } else if (homename == 'Hertha BSC') {
-            return 'img/teams/Hertha/Home.png';
+        } else if (homename == 'Burnley FC') {
+            return 'img/teams/BUR/Home.png';
 
-        } else if (homename == 'RB Leipzig') {
-            return 'img/teams/Leipzig/Home.png';
+        } else if (homename == 'Huddersfield Town AFC') {
+            return 'img/teams/HUD/Home.png';
 
-        } else if (homename == 'SC Freiburg') {
-            return 'img/teams/Freiburg/Home.png';
+        } else if (homename == 'Cardiff City FC') {
+            return 'img/teams/CAR/Home.png';
 
-        } else if (homename == 'TSG 1899 Hoffenheim') {
-            return 'img/teams/Hoffenheim/Home.png';
+        } else if (homename == 'West Ham United FC') {
+            return 'img/teams/WHU/Home.png';
 
-        } else if (homename == 'VfB Stuttgart') {
-            return 'img/teams/Stuttgart/Home.png';
+        } else if (homename == 'Southampton FC') {
+            return 'img/teams/SOU/Home.png';
 
-        } else if (homename == 'VfL Wolfsburg') {
-            return 'img/teams/Wolfsburg/Home.png';
+        } else if (homename == 'Crystal Palace FC') {
+            return 'img/teams/CRY/Home.png';
 
-        } else if (homename == 'Werder Bremen') {
-            return 'img/teams/Bremen/Home.png';
+        } else if (homename == 'Brighton & Hove Albion FC') {
+            return 'img/teams/BHA/Home.png';
+
+        } else if (homename == 'Watford FC') {
+            return 'img/teams/WAT/Home.png';
+
+        } else if (homename == 'AFC Bournemouth') {
+            return 'img/teams/BOU/Home.png';
         }
 
     // Away Team Kit Switching
 
     } else if (location == "Away") {
 
-        // 1. FC Nürnberg - White
-        if (awayname == "1. FC Nürnberg") {
-            if (homename == "VfB Stuttgart" || homename == "Borussia Mönchengladbach" || homename == "FC Augsburg" || homename == "RB Leipzig") {
-                return 'img/teams/Nuernberg/Home.png';
+        // Wolverhampton Wanderers FC - White
+        if (awayname == "Wolverhampton Wanderers FC") {
+            if (homename == "Fulham FC" || homename == "Tottenham Hotspur FC") {
+                return 'img/teams/WOL/Home.png';
             } else {
-                return 'img/teams/Nuernberg/Away.png';
+                return 'img/teams/WOL/Away.png';
             }
 
-        // 1. FSV Mainz 05 - Blue
-        } else if (awayname == "1. FSV Mainz 05") {
-            if (homename == "FC Schalke 04" || homename == "Hertha BSC" || homename == "TSG 1899 Hoffenheim") {
-                return 'img/teams/Mainz/Third.png';
+        // Fulham FC - Blue
+        } else if (awayname == "Fulham FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+                return 'img/teams/FUL/Home.png';
             } else {
-                return 'img/teams/Mainz/Away.png';
+                return 'img/teams/FUL/Away.png';
             }
 
-        // Bayer Leverkusen - White
-        } else if (awayname == "Bayer Leverkusen") {
-            if (homename == "VfB Stuttgart" || homename == "Borussia Mönchengladbach" || homename == "FC Augsburg" || homename == "RB Leipzig") {
-                return 'img/teams/Leverkusen/Third.png';
+        // Liverpool FC - Purple (Blue & Black)
+        } else if (awayname == "Liverpool FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+                return 'img/teams/LIV/Third.png';
             } else {
-                return 'img/teams/Leverkusen/Away.png';
+                return 'img/teams/LIV/Away.png';
             }
 
-        // Borussia Dortmund - Red
-        } else if (awayname == "Borussia Dortmund") {
-            if (homename == "SC Freiburg" || homename == "FC Bayern" || homename == "1. FC Nürnberg" || homename == "1. FSV Mainz 05" || homename == "Hannover 96" || homename == "Fortuna Düsseldorf"){
-                return 'img/teams/Dortmund/Home.png';
+        // Manchester City FC - Navy Blue
+        } else if (awayname == "Manchester City FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC"){
+                return 'img/teams/MCI/Home.png';
             } else {
-                return 'img/teams/Dortmund/Away.png';
+                return 'img/teams/MCI/Away.png';
             }
 
-        // Borussia Mönchengladbach - Black
-        } else if (awayname == 'Borussia Mönchengladbach') {
-            if (homename == "Eintracht Frankfurt" || homename == "Bayer Leverkusen") {
-                return 'img/teams/Gladbach/Home.png';
+        // Newcastle United FC - Unknown!!!
+        } else if (awayname == 'Newcastle United FC') {
+            if (homename == "") {
+                return 'img/teams/NEW/Home.png';
             } else {
-                return 'img/teams/Gladbach/Away.png';
+                return 'img/teams/NEW/Away.png';
             }
 
-        // Eintracht Frankfurt - White
-        } else if (awayname == "Eintracht Frankfurt") {
-            if (homename == "VfB Stuttgart" || homename == "Borussia Mönchengladbach" || homename == "FC Augsburg" || homename == "RB Leipzig") {
-                return 'img/teams/Frankfurt/Home.png';
+        // Arsenal FC - Navy Blue
+        } else if (awayname == "Arsenal FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+                return 'img/teams/ARS/Home.png';
             } else {
-                return 'img/teams/Frankfurt/Away.png';
+                return 'img/teams/ARS/Away.png';
             }
 
-        // FC Augsburg - Green
-        } else if (awayname == "FC Augsburg") {
-            if (homename == "Werder Bremen" || homename == "VfL Wolfsburg") {
-                return 'img/teams/Augsburg/Third.png';
+        // Chelsea FC - Yellow
+        } else if (awayname == "Chelsea FC") {
+            if (homename == "Wolverhampton Wanderers FC") {
+                return 'img/teams/CHE/Home.png';
             } else {
-                return 'img/teams/Augsburg/Away.png';
+                return 'img/teams/CHE/Away.png';
             }
 
-        // FC Bayern - Light Green
-        } else if (awayname == "FC Bayern") {
-            return 'img/teams/Bayern/Away.png';
-
-        // FC Schalke 04 - White
-        } else if (awayname == "FC Schalke 04") {
-            if (homename == "VfB Stuttgart" || homename == "Borussia Mönchengladbach" || homename == "FC Augsburg" || homename == "RB Leipzig") {
-                return 'img/teams/Schalke/Home.png';
+        // Tottenham Hotspur FC - Navy Blue
+        } else if (awayname == "Tottenham Hotspur FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+                return 'img/teams/TOT/Home.png';
             } else {
-                return 'img/teams/Schalke/Away.png';
+                return 'img/teams/TOT/Away.png';
             }
 
-        // Fortuna Düsseldorf - White (Possible Third Kit Coming)
-        } else if (awayname == "Fortuna Düsseldorf") {
-            if (homename == "VfB Stuttgart" || homename == "Borussia Mönchengladbach" || homename == "FC Augsburg" || homename == "RB Leipzig") {
-                return 'img/teams/Duesseldorf/Home.png';
+        // Everton FC - Black
+        } else if (awayname == "Everton FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+                return 'img/teams/EVE/Home.png';
             } else {
-                return 'img/teams/Duesseldorf/Away.png';
+                return 'img/teams/EVE/Away.png';
             }
 
-        // Hannover 96 - Black
-        } else if (awayname == "Hannover 96") {
-            if (homename == "Eintracht Frankfurt" || homename == "Bayer Leverkusen") {
-                return 'img/teams/Hannover/Home.png';
+        // Manchester United FC - Black (Uncomfirmed)
+        } else if (awayname == "Manchester United FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+                return 'img/teams/MUN/Home.png';
             } else {
-                return 'img/teams/Hannover/Away.png';
+                return 'img/teams/MUN/Away.png';
             }
 
-        // Hertha BSC - Black
-        } else if (awayname == "Hertha BSC") {
-            if (homename == "Eintracht Frankfurt" || homename == "Bayer Leverkusen") {
-                return 'img/teams/Hertha/Home.png';
+        // Leicester City FC - Dark Grey
+        } else if (awayname == "Leicester City FC") {
+            if (homename == "") {
+                return 'img/teams/LEI/Home.png';
             } else {
-                return 'img/teams/Hertha/Away.png';
+                return 'img/teams/LEI/Away.png';
             }
 
-        // RB Leipzig - Dark Blue (Black and Blue)
-        } else if (awayname == "RB Leipzig") {
-            if (homename == "Eintracht Frankfurt" || homename == "Bayer Leverkusen" || homename == "FC Schalke 04" || homename == "Hertha BSC" || homename == "TSG 1899 Hoffenheim") {
-                return 'img/teams/Leipzig/Home.png';
+        // Burnley FC - Unknown
+        } else if (awayname == "Burnley FC") {
+            if (homename == "") {
+                return 'img/teams/BUR/Home.png';
             } else {
-                return 'img/teams/Leipzig/Away.png';
+                return 'img/teams/BUR/Away.png';
             }
 
-        // SC Freiburg - White
-        } else if (awayname == "SC Freiburg") {
-            if (homename == "VfB Stuttgart" || homename == "Borussia Mönchengladbach" || homename == "FC Augsburg" || homename == "RB Leipzig") {
-                return 'img/teams/Freiburg/Home.png';
+        // Huddersfield Town AFC - Black & Red
+        } else if (awayname == "Huddersfield Town AFC") {
+            if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC") {
+                return 'img/teams/HUD/Home.png';
             } else {
-                return 'img/teams/Freiburg/Away.png';
+                return 'img/teams/HUD/Away.png';
             }
 
-        // TSG 1899 Hoffenheim - White
-        } else if (awayname == "TSG 1899 Hoffenheim") {
-            if (homename == "VfB Stuttgart" || homename == "Borussia Mönchengladbach" || homename == "FC Augsburg" || homename == "RB Leipzig") {
-                return 'img/teams/Hoffenheim/Third.png';
+        // Cardiff City FC - Unknown
+        } else if (awayname == "Cardiff City FC") {
+            if (homename == "") {
+                return 'img/teams/CAR/Home.png';
             } else {
-                return 'img/teams/Hoffenheim/Away.png';
+                return 'img/teams/CAR/Away.png';
             }
 
-        // VfB Stuttgart - Red
-        } else if (awayname == "VfB Stuttgart") {
-            if (homename == "SC Freiburg" || homename == "FC Bayern" || homename == "1. FC Nürnberg" || homename == "1. FSV Mainz 05" || homename == "Hannover 96" || homename == "Fortuna Düsseldorf"){
-                return 'img/teams/Stuttgart/Third.png';
+        // West Ham United FC - Dark Teal
+        } else if (awayname == "West Ham United FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+                return 'img/teams/WHU/Third.png';
             } else {
-                return 'img/teams/Stuttgart/Away.png';
+                return 'img/teams/WHU/Away.png';
             }
 
-        // VfL Wolfsburg - White
-        } else if (awayname == "VfL Wolfsburg") {
-            if (homename == "VfB Stuttgart" || homename == "Borussia Mönchengladbach" || homename == "FC Augsburg" || homename == "RB Leipzig") {
-                return 'img/teams/Wolfsburg/Home.png';
+        // Southampton FC - Unknown
+        } else if (awayname == "Southampton FC") {
+            if (homename == ""){
+                return 'img/teams/SOU/Third.png';
             } else {
-                return 'img/teams/Wolfsburg/Away.png';
+                return 'img/teams/SOU/Away.png';
             }
 
-        // Werder Bremen - Black
-        } else if (awayname == "Werder Bremen") {
-            if (homename == "Eintracht Frankfurt" || homename == "Bayer Leverkusen") {
-                return 'img/teams/Bremen/Third.png';
+        // Crystal Palace FC - White
+        } else if (awayname == "Crystal Palace FC") {
+            if (homename == "Fulham FC" || homename == "Tottenham Hotspur FC") {
+                return 'img/teams/CRY/Home.png';
             } else {
-                return 'img/teams/Bremen/Away.png';
+                return 'img/teams/CRY/Away.png';
+            }
+
+        // Brighton & Hove Albion FC - Green
+        } else if (awayname == "Brighton & Hove Albion FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+                return 'img/teams/BHA/Home.png';
+            } else {
+                return 'img/teams/BHA/Away.png';
+            }
+
+        // Watford FC - Green
+        } else if (awayname == "Watford FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+                return 'img/teams/WAT/Home.png';
+            } else {
+                return 'img/teams/WAT/Away.png';
+            }
+
+        // AFC Bournemouth - White
+        } else if (awayname == "AFC Bournemouth") {
+            if (homename == "Fulham FC" || homename == "Tottenham Hotspur FC") {
+                return 'img/teams/BOU/Home.png';
+            } else {
+                return 'img/teams/BOU/Away.png';
             }
         }
     }

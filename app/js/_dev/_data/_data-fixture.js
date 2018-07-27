@@ -32,7 +32,7 @@ function dataFixture() {
         var currentRound = [];
         var currentRoundNo = roundCalc(today);
 
-        $('.js-fixture-round').text(currentRoundNo);
+        $('.js-fixture-round').text("Gameday " + currentRoundNo);
 
         for (i = 0; i < matches.length; i++) {
             const element = matches[i];
@@ -42,7 +42,7 @@ function dataFixture() {
             }
         }
 
-        console.log(currentRound);
+        console.log(data);
 
         for (i = 0; i < currentRound.length; i++) {
             const element = currentRound[i];
