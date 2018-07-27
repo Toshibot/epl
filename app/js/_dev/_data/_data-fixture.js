@@ -4,7 +4,7 @@
 function dataFixture() {
 
     var self = this;
-    self.tasksURI = "http://api.football-data.org/v2/competitions/2021/matches";
+    self.tasksURI = "https://api.football-data.org/v2/competitions/2021/matches";
 
     self.ajax = function(uri, method, data) {
         var request = {
