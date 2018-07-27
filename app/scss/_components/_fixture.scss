@@ -37,14 +37,22 @@
     }
 
     &__venue {
-        padding: 0px 0 $size-base;
+        padding: 0px 0 $size-base-s;
         font-size: 12px;
+
+        @media screen and (max-width: $break-s) {
+            padding: 15px 0 $size-base;
+        }
     }
     
     
     &__date {
-        padding: $size-base 0 $size-base-s;
+        padding: $size-base-s 0 $size-base-s;
         line-height: 1.5;
+
+        @media screen and (max-width: $break-s) {
+            padding: $size-base 0 $size-base-s;
+        }
     }
 
     &__vs {
@@ -57,7 +65,7 @@
     &__team {
         display: inline-block;
         text-align: center;
-        width: 75px;
+        width: 50px;
         font-size: 12px;
         line-height: 16px;
 
@@ -71,11 +79,20 @@
         }
 
         img {
-            width: 75px;
-            height: 75px;
+            width: 50px;
+            height: 50px;
             text-align: center;
-            margin: $size-base-s 0;
+            margin: $size-base-xs 0;
             // @include boxShadow(3, $color-black);
+        }
+
+        @media screen and (max-width: $break-s){
+            width: 75px;
+
+            img {
+                width: 75px;
+                height: 75px;
+            }
         }
     }
 
