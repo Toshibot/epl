@@ -98,9 +98,9 @@ function kitImg(homename,awayname,location){
                 return 'img/teams/MCI/Away.png';
             }
 
-        // Newcastle United FC - Unknown!!!
+        // Newcastle United FC - Navy & Red
         } else if (awayname == 'Newcastle United FC') {
-            if (homename == "") {
+            if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC") {
                 return 'img/teams/NEW/Home.png';
             } else {
                 return 'img/teams/NEW/Away.png';
@@ -138,7 +138,7 @@ function kitImg(homename,awayname,location){
                 return 'img/teams/EVE/Away.png';
             }
 
-        // Manchester United FC - Black (Uncomfirmed)
+        // Manchester United FC - Navy Blue
         } else if (awayname == "Manchester United FC") {
             if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
                 return 'img/teams/MUN/Home.png';
@@ -170,9 +170,9 @@ function kitImg(homename,awayname,location){
                 return 'img/teams/HUD/Away.png';
             }
 
-        // Cardiff City FC - Unknown
+        // Cardiff City FC - White
         } else if (awayname == "Cardiff City FC") {
-            if (homename == "") {
+            if (homename == "Fulham FC" || homename == "Tottenham Hotspur FC") {
                 return 'img/teams/CAR/Home.png';
             } else {
                 return 'img/teams/CAR/Away.png';
@@ -186,9 +186,9 @@ function kitImg(homename,awayname,location){
                 return 'img/teams/WHU/Away.png';
             }
 
-        // Southampton FC - Unknown
+        // Southampton FC - Yellow
         } else if (awayname == "Southampton FC") {
-            if (homename == ""){
+            if (homename == "Wolverhampton Wanderers FC"){
                 return 'img/teams/SOU/Third.png';
             } else {
                 return 'img/teams/SOU/Away.png';
