@@ -100,7 +100,7 @@ function kitImg(homename,awayname,location){
 
         // Newcastle United FC - Navy & Red
         } else if (awayname == 'Newcastle United FC') {
-            if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC") {
+            if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC" || homename == 'West Ham United FC') {
                 return 'img/teams/NEW/Home.png';
             } else {
                 return 'img/teams/NEW/Away.png';
@@ -164,7 +164,7 @@ function kitImg(homename,awayname,location){
 
         // Huddersfield Town AFC - Black & Red
         } else if (awayname == "Huddersfield Town AFC") {
-            if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC") {
+            if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC" || homename == 'West Ham United FC') {
                 return 'img/teams/HUD/Home.png';
             } else {
                 return 'img/teams/HUD/Away.png';
