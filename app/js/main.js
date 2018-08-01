@@ -108,7 +108,7 @@ function dataFixture() {
         var currentRound = [];
         var currentRoundNo = roundCalc(today);
 
-        $('.js-fixture-round').text("Gameday " + currentRoundNo);
+        $('.js-fixture-round').text("Matchday " + currentRoundNo);
 
         for (i = 0; i < matches.length; i++) {
             const element = matches[i];
@@ -415,7 +415,7 @@ function kitImg(homename,awayname,location){
         // Newcastle United FC - Navy & Red
         } else if (awayname == 'Newcastle United FC') {
             if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC" || homename == 'West Ham United FC') {
-                return 'img/teams/NEW/Home.png';
+                return 'img/teams/NEW/Third.png';
             } else {
                 return 'img/teams/NEW/Away.png';
             }
@@ -487,7 +487,7 @@ function kitImg(homename,awayname,location){
         // Cardiff City FC - White
         } else if (awayname == "Cardiff City FC") {
             if (homename == "Fulham FC" || homename == "Tottenham Hotspur FC") {
-                return 'img/teams/CAR/Home.png';
+                return 'img/teams/CAR/Third.png';
             } else {
                 return 'img/teams/CAR/Away.png';
             }
