@@ -494,7 +494,7 @@ function kitImg(homename,awayname,location){
 
         // West Ham United FC - Dark Teal
         } else if (awayname == "West Ham United FC") {
-            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC" || homename == "Liverpool FC") {
                 return 'img/teams/WHU/Third.png';
             } else {
                 return 'img/teams/WHU/Away.png';
