@@ -468,10 +468,10 @@ function kitImg(homename,awayname,location){
                 return 'img/teams/LEI/Away.png';
             }
 
-        // Burnley FC - Unknown
+        // Burnley FC - Black
         } else if (awayname == "Burnley FC") {
-            if (homename == "") {
-                return 'img/teams/BUR/Home.png';
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+                return 'img/teams/BUR/Third.png';
             } else {
                 return 'img/teams/BUR/Away.png';
             }
