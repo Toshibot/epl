@@ -148,8 +148,8 @@ function kitImg(homename,awayname,location){
 
         // Leicester City FC - Dark Grey
         } else if (awayname == "Leicester City FC") {
-            if (homename == "") {
-                return 'img/teams/LEI/Home.png';
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+                return 'img/teams/LEI/Third.png';
             } else {
                 return 'img/teams/LEI/Away.png';
             }
