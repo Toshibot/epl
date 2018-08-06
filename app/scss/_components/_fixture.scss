@@ -79,10 +79,10 @@
         }
 
         img {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             text-align: center;
-            margin: $size-base-xs 0;
+            margin: 1px 0 $size-base-xs;
             // @include boxShadow(3, $color-black);
         }
 
