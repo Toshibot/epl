@@ -4,7 +4,7 @@ function fixtureItem(array) {
     var date = dateTime(array.utcDate);
     var match_status = array.status;
 
-    if (match_status == true) {
+    if (match_status == "FINISHED") {
 
         $('.js-fixture').before(
             '<div class="c-fixture__game c-fixture__game--completed">' +
