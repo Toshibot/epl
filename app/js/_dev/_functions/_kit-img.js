@@ -124,7 +124,7 @@ function kitImg(homename,awayname,location){
 
         // Tottenham Hotspur FC - Navy Blue
         } else if (awayname == "Tottenham Hotspur FC") {
-            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC" || homename == "Newcastle United FC") {
                 return 'img/teams/TOT/Third.png';
             } else {
                 return 'img/teams/TOT/Away.png';
