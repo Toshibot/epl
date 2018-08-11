@@ -1620,6 +1620,9 @@ body {
   padding: 0 25px;
   vertical-align: top;
   margin-top: 25px; }
+  @media screen and (max-width: 64em) {
+    .c-fixture__vs {
+      margin-top: 50px; } }
 
 .c-fixture__team {
   display: inline-block;
