@@ -75,114 +75,6 @@ var ladder = function(){
 
 }
 
-// Data - Fixture/Results
-
-function dataFixture() {
-
-    var self = this;
-    self.tasksURI = "https://api.football-data.org/v2/competitions/2021/matches";
-
-    self.ajax = function(uri, method, data) {
-        var request = {
-            url: uri,
-            type: method,
-            accepts: "application/json",
-            cache: false,
-            dataType: "json",
-            data: JSON.stringify(data),
-            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
-            error: function (jqXHR) {
-                console.log("ajax error " + jqXHR.status);
-            }
-
-        };
-
-        return $.ajax(request);
-    }
-
-    self.ajax(self.tasksURI, 'GET').done(function(data) {
-
-        var matches = data.matches;
-        var today = new Date;
-        var testDate = new Date('2018-04-24');
-        var currentRound = [];
-        var currentRoundNo = roundCalc(today);
-
-        $('.js-fixture-round').text("Matchday " + currentRoundNo);
-
-        for (i = 0; i < matches.length; i++) {
-            const element = matches[i];
-            
-            if (element.matchday == currentRoundNo) {
-                currentRound.push(element);
-            }
-        }
-
-        console.log(data);
-
-        for (i = 0; i < currentRound.length; i++) {
-            const element = currentRound[i];
-
-            fixtureItem(element);
-        }
-    })
-}
-
-
-
-//
-// Data
-// ====
-function dataLadder() { 
-    
-    // $.getJSON('https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.json', function (json) {
-    //     var round = $('.c-ladder__round');
-
-
-    //     // Construct the Ladder
-    //     for (i = 0; i < json.length; i++) {
-    //         const element = json[i];
-    //         ladderItem(element, i+1);
-    //     }
-
-    // });
-
-    var self = this;
-    self.tasksURI = "https://api.football-data.org/v2/competitions/2021/standings";
-
-    self.ajax = function(uri, method, data) {
-        var request = {
-            url: uri,
-            type: method,
-            accepts: "application/json",
-            cache: false,
-            dataType: "json",
-            data: JSON.stringify(data),
-            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
-            error: function (jqXHR) {
-                console.log("ajax error " + jqXHR.status);
-            }
-
-        };
-
-        return $.ajax(request);
-    }
-
-    self.ajax(self.tasksURI, 'GET').done(function(data) {
-        // console.log(data);
-
-        var ladder = data.standings[0].table;
-        console.log(ladder);
-
-        // Construct the Ladder
-        for (i = 0; i < ladder.length; i++) {
-            const element = ladder[i];
-            ladderItem(element, i+1);
-        }
-    })
-
-}
-
 function dateTime(d) {
 
     var date = new Date(d);
@@ -375,7 +267,7 @@ function kitImg(homename,awayname,location){
             return 'img/teams/LIV/Home.png';
 
         } else if (homename == 'Manchester City FC') {
-            return 'img/teams/MUN/Home.png';
+            return 'img/teams/MCI/Home.png';
 
         } else if (homename == 'Newcastle United FC') {
             return 'img/teams/NEW/Home.png';
@@ -448,7 +340,7 @@ function kitImg(homename,awayname,location){
 
         // Liverpool FC - Purple (Blue & Black)
         } else if (awayname == "Liverpool FC") {
-            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC" || homename == "Crystal Palace FC") {
                 return 'img/teams/LIV/Third.png';
             } else {
                 return 'img/teams/LIV/Away.png';
@@ -464,7 +356,7 @@ function kitImg(homename,awayname,location){
 
         // Newcastle United FC - Navy & Red
         } else if (awayname == 'Newcastle United FC') {
-            if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC" || homename == 'West Ham United FC') {
+            if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC" || homename == 'West Ham United FC' || homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
                 return 'img/teams/NEW/Third.png';
             } else {
                 return 'img/teams/NEW/Away.png';
@@ -613,24 +505,28 @@ function roundCalc(d) {
     var year = currentDate.getFullYear();
 
     // Gameday 1
-    if (year == "2018" && month <= 8) {
+    if (year == "2018" && month <= 7 && date <= 12) {
         return 1;
 
     // Gameday 2    
-    } else if (year == "2018" && month == 8 && date <= 20){
+    } else if (year == "2018" && month == 7 && date <= 21){
         return 2;
 
     // Gameday 3
-    } else if (year == "2018" && month == 8 && date <= 27){
+    } else if (year == "2018" && month == 7 && date <= 28){
         return 3;
 
     // Gameday 4
-    } else if (year == "2018" && month == 8 && date <= 31 || year == "2018" && month == 9 && date <= 7){
+    } else if (year == "2018" && month == 7 && date <= 31 || year == "2018" && month == 9 && date <= 8){
         return 4;
 
     // Gameday 5
-    } else if (year == "2018" && month == 9 && date <= 17){
+    } else if (year == "2018" && month == 8 && date <= 18){
         return 5;
+
+    // Gameday 6
+    } else if (year == "2018" && month == 8 && date <= 24){
+        return 6;
 
     }
 }
@@ -723,6 +619,114 @@ function teamImg(team) {
     } else if (team == 'AFC Bournemouth') {
         return 'img/teams/BOU/Logo.png';
     }
+}
+
+// Data - Fixture/Results
+
+function dataFixture() {
+
+    var self = this;
+    self.tasksURI = "https://api.football-data.org/v2/competitions/2021/matches";
+
+    self.ajax = function(uri, method, data) {
+        var request = {
+            url: uri,
+            type: method,
+            accepts: "application/json",
+            cache: false,
+            dataType: "json",
+            data: JSON.stringify(data),
+            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
+            error: function (jqXHR) {
+                console.log("ajax error " + jqXHR.status);
+            }
+
+        };
+
+        return $.ajax(request);
+    }
+
+    self.ajax(self.tasksURI, 'GET').done(function(data) {
+
+        var matches = data.matches;
+        var today = new Date;
+        var testDate = new Date('2018-04-24');
+        var currentRound = [];
+        var currentRoundNo = roundCalc(today);
+
+        $('.js-fixture-round').text("Matchday " + currentRoundNo);
+
+        for (i = 0; i < matches.length; i++) {
+            const element = matches[i];
+            
+            if (element.matchday == currentRoundNo) {
+                currentRound.push(element);
+            }
+        }
+
+        console.log(data);
+
+        for (i = 0; i < currentRound.length; i++) {
+            const element = currentRound[i];
+
+            fixtureItem(element);
+        }
+    })
+}
+
+
+
+//
+// Data
+// ====
+function dataLadder() { 
+    
+    // $.getJSON('https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.json', function (json) {
+    //     var round = $('.c-ladder__round');
+
+
+    //     // Construct the Ladder
+    //     for (i = 0; i < json.length; i++) {
+    //         const element = json[i];
+    //         ladderItem(element, i+1);
+    //     }
+
+    // });
+
+    var self = this;
+    self.tasksURI = "https://api.football-data.org/v2/competitions/2021/standings";
+
+    self.ajax = function(uri, method, data) {
+        var request = {
+            url: uri,
+            type: method,
+            accepts: "application/json",
+            cache: false,
+            dataType: "json",
+            data: JSON.stringify(data),
+            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
+            error: function (jqXHR) {
+                console.log("ajax error " + jqXHR.status);
+            }
+
+        };
+
+        return $.ajax(request);
+    }
+
+    self.ajax(self.tasksURI, 'GET').done(function(data) {
+        // console.log(data);
+
+        var ladder = data.standings[0].table;
+        console.log(ladder);
+
+        // Construct the Ladder
+        for (i = 0; i < ladder.length; i++) {
+            const element = ladder[i];
+            ladderItem(element, i+1);
+        }
+    })
+
 }
 //
 // Layout - Vertically Centered
