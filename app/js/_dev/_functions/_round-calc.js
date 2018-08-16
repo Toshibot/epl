@@ -5,28 +5,60 @@ function roundCalc(d) {
     var year = currentDate.getFullYear();
 
     // Gameday 1
-    if (year == "2018" && month <= 7 && date <= 12) {
+    if (year == "2018" && month <= 7 && date <= 11) {
         return 1;
 
     // Gameday 2    
-    } else if (year == "2018" && month == 7 && date <= 21){
+    } else if (year == "2018" && month == 7 && date <= 20){
         return 2;
 
     // Gameday 3
-    } else if (year == "2018" && month == 7 && date <= 28){
+    } else if (year == "2018" && month == 7 && date <= 27){
         return 3;
 
     // Gameday 4
-    } else if (year == "2018" && month == 7 && date <= 31 || year == "2018" && month == 9 && date <= 8){
+    } else if (year == "2018" && month == 7 && date <= 31 || year == "2018" && month == 8 && date <= 2){
         return 4;
 
     // Gameday 5
-    } else if (year == "2018" && month == 8 && date <= 18){
+    } else if (year == "2018" && month == 8 && date <= 17){
         return 5;
 
     // Gameday 6
-    } else if (year == "2018" && month == 8 && date <= 24){
+    } else if (year == "2018" && month == 8 && date <= 23){
         return 6;
+
+    // Gameday 7
+    } else if (year == "2018" && month == 8 && date <= 31 || year == "2018" && month == 9 && date <= 1){
+        return 7;
+
+    // Gameday 8
+    } else if (year == "2018" && month == 9 && date <= 7){
+        return 8;
+
+    // Gameday 9
+    } else if (year == "2018" && month == 9 && date <= 22){
+        return 9;
+
+    // Gameday 10
+    } else if (year == "2018" && month == 9 && date <= 28){
+        return 10;
+
+    // Gameday 11
+    } else if (year == "2018" && month == 9 && date <= 31 || year == "2018" && month == 10 && date <= 5){
+        return 11;
+
+    // Gameday 12
+    } else if (year == "2018" && month == 10 && date <= 11){
+        return 12;
+
+    // Gameday 13
+    } else if (year == "2018" && month == 10 && date <= 26){
+        return 13;
+
+    // Gameday 14
+    } else if (year == "2018" && month == 10 && date <= 30 || year =="2018" && month == 11 && date <= 4){
+        return 14;
 
     }
 }

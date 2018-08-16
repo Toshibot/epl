@@ -75,6 +75,179 @@ var ladder = function(){
 
 }
 
+// Data - Fixture/Results
+
+function dataFixture() {
+
+    var self = this;
+    self.tasksURI = "https://api.football-data.org/v2/competitions/2021/matches";
+
+    self.ajax = function(uri, method, data) {
+        var request = {
+            url: uri,
+            type: method,
+            accepts: "application/json",
+            cache: false,
+            dataType: "json",
+            data: JSON.stringify(data),
+            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
+            error: function (jqXHR) {
+                console.log("ajax error " + jqXHR.status);
+            }
+
+        };
+
+        return $.ajax(request);
+    }
+
+    self.ajax(self.tasksURI, 'GET').done(function(data) {
+
+        var matches = data.matches;
+        var today = new Date;
+        var testDate = new Date('2018-04-24');
+        var currentRound = [];
+        var currentRoundNo = roundCalc(today);
+
+        $('.js-fixture-round').text("Matchday " + currentRoundNo);
+
+        for (i = 0; i < matches.length; i++) {
+            const element = matches[i];
+            
+            if (element.matchday == currentRoundNo) {
+                currentRound.push(element);
+            }
+        }
+
+        console.log(data);
+
+        for (i = 0; i < currentRound.length; i++) {
+            const element = currentRound[i];
+
+            fixtureItem(element);
+        }
+    })
+}
+
+
+
+//
+// Data
+// ====
+function dataLadder() { 
+    
+    // $.getJSON('https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.json', function (json) {
+    //     var round = $('.c-ladder__round');
+
+
+    //     // Construct the Ladder
+    //     for (i = 0; i < json.length; i++) {
+    //         const element = json[i];
+    //         ladderItem(element, i+1);
+    //     }
+
+    // });
+
+    var self = this;
+    self.tasksURI = "https://api.football-data.org/v2/competitions/2021/standings";
+
+    self.ajax = function(uri, method, data) {
+        var request = {
+            url: uri,
+            type: method,
+            accepts: "application/json",
+            cache: false,
+            dataType: "json",
+            data: JSON.stringify(data),
+            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
+            error: function (jqXHR) {
+                console.log("ajax error " + jqXHR.status);
+            }
+
+        };
+
+        return $.ajax(request);
+    }
+
+    self.ajax(self.tasksURI, 'GET').done(function(data) {
+        // console.log(data);
+
+        var ladder = data.standings[0].table;
+        console.log(ladder);
+
+        // Construct the Ladder
+        for (i = 0; i < ladder.length; i++) {
+            const element = ladder[i];
+            ladderItem(element, i+1);
+        }
+    })
+
+}
+//
+// Layout - Vertically Centered
+// ==========================================================================
+
+// ***
+// This function vertically centers an object element within 
+// its parent element by calculating the height of the parent,
+// the height of the child and adding padding to the top and 
+// bottom of the child element.
+//
+// Parent Element
+// --------------
+// The parent element must be a jQuery object.
+// eg: $('.o-vert-center')
+//
+// Child Element
+// -------------
+// The child element must be a direct child of the parent and
+// be passed through the function with only its classname.
+// eg: '.o-vert-center__object'
+// *
+
+function vertCenter(element, child) {
+
+    var parentHeight = element.parent().height();
+    // This will give the element the same height
+    // and line-height as it's parent container.
+    element.css({
+        'height': parentHeight + 'px',
+        'line-height': parentHeight + 'px'
+    });
+    
+    element.children(child).css({
+        'height': element.children(child).height(),
+        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
+        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
+    });
+}
+
+function clearStyles(element, child) {
+    element.attr('style', '');
+    child.attr('style', '');
+}
+
+// Function applied to the following parent/child classes:
+// vertCenter($('.o-vert-center'), '.o-vert-center__object');
+
+// On window resize clear previous styles then re-run the function.
+$(window).on('resize', function() {
+    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
+    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
+});
+
+
+//
+// UI - Buttons
+// ==========================================================================
+
+// Variables
+// var gitButton = document.getElementById('js-button-github');
+
+// gitButton.addEventListener('click', function(){
+//     window.open('https://github.com/Toshibot/webapp-boilerplate', '_blank');
+// });
+
+
 function dateTime(d) {
 
     var date = new Date(d);
@@ -505,28 +678,60 @@ function roundCalc(d) {
     var year = currentDate.getFullYear();
 
     // Gameday 1
-    if (year == "2018" && month <= 7 && date <= 12) {
+    if (year == "2018" && month <= 7 && date <= 11) {
         return 1;
 
     // Gameday 2    
-    } else if (year == "2018" && month == 7 && date <= 21){
+    } else if (year == "2018" && month == 7 && date <= 20){
         return 2;
 
     // Gameday 3
-    } else if (year == "2018" && month == 7 && date <= 28){
+    } else if (year == "2018" && month == 7 && date <= 27){
         return 3;
 
     // Gameday 4
-    } else if (year == "2018" && month == 7 && date <= 31 || year == "2018" && month == 9 && date <= 8){
+    } else if (year == "2018" && month == 7 && date <= 31 || year == "2018" && month == 8 && date <= 2){
         return 4;
 
     // Gameday 5
-    } else if (year == "2018" && month == 8 && date <= 18){
+    } else if (year == "2018" && month == 8 && date <= 17){
         return 5;
 
     // Gameday 6
-    } else if (year == "2018" && month == 8 && date <= 24){
+    } else if (year == "2018" && month == 8 && date <= 23){
         return 6;
+
+    // Gameday 7
+    } else if (year == "2018" && month == 8 && date <= 31 || year == "2018" && month == 9 && date <= 1){
+        return 7;
+
+    // Gameday 8
+    } else if (year == "2018" && month == 9 && date <= 7){
+        return 8;
+
+    // Gameday 9
+    } else if (year == "2018" && month == 9 && date <= 22){
+        return 9;
+
+    // Gameday 10
+    } else if (year == "2018" && month == 9 && date <= 28){
+        return 10;
+
+    // Gameday 11
+    } else if (year == "2018" && month == 9 && date <= 31 || year == "2018" && month == 10 && date <= 5){
+        return 11;
+
+    // Gameday 12
+    } else if (year == "2018" && month == 10 && date <= 11){
+        return 12;
+
+    // Gameday 13
+    } else if (year == "2018" && month == 10 && date <= 26){
+        return 13;
+
+    // Gameday 14
+    } else if (year == "2018" && month == 10 && date <= 30 || year =="2018" && month == 11 && date <= 4){
+        return 14;
 
     }
 }
@@ -620,175 +825,3 @@ function teamImg(team) {
         return 'img/teams/BOU/Logo.png';
     }
 }
-
-// Data - Fixture/Results
-
-function dataFixture() {
-
-    var self = this;
-    self.tasksURI = "https://api.football-data.org/v2/competitions/2021/matches";
-
-    self.ajax = function(uri, method, data) {
-        var request = {
-            url: uri,
-            type: method,
-            accepts: "application/json",
-            cache: false,
-            dataType: "json",
-            data: JSON.stringify(data),
-            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
-            error: function (jqXHR) {
-                console.log("ajax error " + jqXHR.status);
-            }
-
-        };
-
-        return $.ajax(request);
-    }
-
-    self.ajax(self.tasksURI, 'GET').done(function(data) {
-
-        var matches = data.matches;
-        var today = new Date;
-        var testDate = new Date('2018-04-24');
-        var currentRound = [];
-        var currentRoundNo = roundCalc(today);
-
-        $('.js-fixture-round').text("Matchday " + currentRoundNo);
-
-        for (i = 0; i < matches.length; i++) {
-            const element = matches[i];
-            
-            if (element.matchday == currentRoundNo) {
-                currentRound.push(element);
-            }
-        }
-
-        console.log(data);
-
-        for (i = 0; i < currentRound.length; i++) {
-            const element = currentRound[i];
-
-            fixtureItem(element);
-        }
-    })
-}
-
-
-
-//
-// Data
-// ====
-function dataLadder() { 
-    
-    // $.getJSON('https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.json', function (json) {
-    //     var round = $('.c-ladder__round');
-
-
-    //     // Construct the Ladder
-    //     for (i = 0; i < json.length; i++) {
-    //         const element = json[i];
-    //         ladderItem(element, i+1);
-    //     }
-
-    // });
-
-    var self = this;
-    self.tasksURI = "https://api.football-data.org/v2/competitions/2021/standings";
-
-    self.ajax = function(uri, method, data) {
-        var request = {
-            url: uri,
-            type: method,
-            accepts: "application/json",
-            cache: false,
-            dataType: "json",
-            data: JSON.stringify(data),
-            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
-            error: function (jqXHR) {
-                console.log("ajax error " + jqXHR.status);
-            }
-
-        };
-
-        return $.ajax(request);
-    }
-
-    self.ajax(self.tasksURI, 'GET').done(function(data) {
-        // console.log(data);
-
-        var ladder = data.standings[0].table;
-        console.log(ladder);
-
-        // Construct the Ladder
-        for (i = 0; i < ladder.length; i++) {
-            const element = ladder[i];
-            ladderItem(element, i+1);
-        }
-    })
-
-}
-//
-// Layout - Vertically Centered
-// ==========================================================================
-
-// ***
-// This function vertically centers an object element within 
-// its parent element by calculating the height of the parent,
-// the height of the child and adding padding to the top and 
-// bottom of the child element.
-//
-// Parent Element
-// --------------
-// The parent element must be a jQuery object.
-// eg: $('.o-vert-center')
-//
-// Child Element
-// -------------
-// The child element must be a direct child of the parent and
-// be passed through the function with only its classname.
-// eg: '.o-vert-center__object'
-// *
-
-function vertCenter(element, child) {
-
-    var parentHeight = element.parent().height();
-    // This will give the element the same height
-    // and line-height as it's parent container.
-    element.css({
-        'height': parentHeight + 'px',
-        'line-height': parentHeight + 'px'
-    });
-    
-    element.children(child).css({
-        'height': element.children(child).height(),
-        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
-        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
-    });
-}
-
-function clearStyles(element, child) {
-    element.attr('style', '');
-    child.attr('style', '');
-}
-
-// Function applied to the following parent/child classes:
-// vertCenter($('.o-vert-center'), '.o-vert-center__object');
-
-// On window resize clear previous styles then re-run the function.
-$(window).on('resize', function() {
-    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
-    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
-});
-
-
-//
-// UI - Buttons
-// ==========================================================================
-
-// Variables
-// var gitButton = document.getElementById('js-button-github');
-
-// gitButton.addEventListener('click', function(){
-//     window.open('https://github.com/Toshibot/webapp-boilerplate', '_blank');
-// });
