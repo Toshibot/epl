@@ -1,7 +1,7 @@
 
 // Constructs the ladder Items
 function ladderItem(array, number) {
-    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(array.team.name);  
+    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(teamAbrev(array.team.name)[0].name);  
     $('.c-ladder__item-' + number + ' div.c-ladder__team').children('img').attr('src', teamImg(array.team.name));  
     $('.c-ladder__item-' + number + ' div.c-ladder__played').text(array.playedGames);
     $('.c-ladder__item-' + number + ' div.c-ladder__wins').text(array.won);

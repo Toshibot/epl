@@ -10,71 +10,6 @@ dataFixture();
 // ==========================================================================
 
 
-// 
-// Ladder
-// ======
-
-var ladder = function(){
-
-    // GWS
-    var giants = $('.c-ladder__team:contains("Greater Western Sydney")'); 
-    giants.children('span').text('GWS');
-    giants.children('img').attr('src', 'img/teams/gws.svg');
-
-    var hawks = $('.c-ladder__team:contains("Hawthorn")');
-    hawks.children('img').attr('src', 'img/teams/hawks.svg');
-
-    var suns = $('.c-ladder__team:contains("Gold Coast")');
-    suns.children('img').attr('src', 'img/teams/suns.svg');
-
-    var swans = $('.c-ladder__team:contains("Sydney")');
-    swans.children('img').attr('src', 'img/teams/swans.svg');
-
-    var saints = $('.c-ladder__team:contains("St Kilda")');
-    saints.children('img').attr('src', 'img/teams/saints.svg');
-
-    var tigers = $('.c-ladder__team:contains("Richmond")');
-    tigers.children('img').attr('src', 'img/teams/tigers.svg');
-
-    var bombers = $('.c-ladder__team:contains("Essendon")');
-    bombers.children('img').attr('src', 'img/teams/bombers.svg');
-
-    var cats = $('.c-ladder__team:contains("Geelong")');
-    cats.children('img').attr('src', 'img/teams/cats.svg');
-
-    var demons = $('.c-ladder__team:contains("Melbourne")');
-    demons.children('img').attr('src', 'img/teams/demons.svg');
-
-    var crows = $('.c-ladder__team:contains("Adelaide")');
-    crows.children('img').attr('src', 'img/teams/crows.svg');
-
-    var blues = $('.c-ladder__team:contains("Carlton")');
-    blues.children('img').attr('src', 'img/teams/blues.svg');
-    
-    // Port Adelaide
-    var port = $('.c-ladder__team:contains("Port Adelaide")');
-    port.children('img').attr('src', 'img/teams/port.svg');
-
-    var lions = $('.c-ladder__team:contains("Brisbane")');
-    lions.children('img').attr('src', 'img/teams/lions.svg');
-
-    var eagles = $('.c-ladder__team:contains("West Coast")');
-    eagles.children('img').attr('src', 'img/teams/eagles.svg');
-
-    var kangaroos = $('.c-ladder__team:contains("North Melbourne")');
-    kangaroos.children('img').attr('src', 'img/teams/kangaroos.svg');
-
-    var magpies = $('.c-ladder__team:contains("Collingwood")');
-    magpies.children('img').attr('src', 'img/teams/magpies.svg');
-
-    var dockers = $('.c-ladder__team:contains("Fremantle")');
-    dockers.children('img').attr('src', 'img/teams/dockers.svg');
-
-    var dogs = $('.c-ladder__team:contains("Bulldogs")');
-    dogs.children('img').attr('src', 'img/teams/dogs.svg');
-
-}
-
 // Data - Fixture/Results
 
 function dataFixture() {
@@ -134,18 +69,6 @@ function dataFixture() {
 // Data
 // ====
 function dataLadder() { 
-    
-    // $.getJSON('https://raw.githubusercontent.com/openfootball/football.json/master/2017-18/en.1.json', function (json) {
-    //     var round = $('.c-ladder__round');
-
-
-    //     // Construct the Ladder
-    //     for (i = 0; i < json.length; i++) {
-    //         const element = json[i];
-    //         ladderItem(element, i+1);
-    //     }
-
-    // });
 
     var self = this;
     self.tasksURI = "https://api.football-data.org/v2/competitions/2021/standings";
@@ -182,71 +105,6 @@ function dataLadder() {
     })
 
 }
-//
-// Layout - Vertically Centered
-// ==========================================================================
-
-// ***
-// This function vertically centers an object element within 
-// its parent element by calculating the height of the parent,
-// the height of the child and adding padding to the top and 
-// bottom of the child element.
-//
-// Parent Element
-// --------------
-// The parent element must be a jQuery object.
-// eg: $('.o-vert-center')
-//
-// Child Element
-// -------------
-// The child element must be a direct child of the parent and
-// be passed through the function with only its classname.
-// eg: '.o-vert-center__object'
-// *
-
-function vertCenter(element, child) {
-
-    var parentHeight = element.parent().height();
-    // This will give the element the same height
-    // and line-height as it's parent container.
-    element.css({
-        'height': parentHeight + 'px',
-        'line-height': parentHeight + 'px'
-    });
-    
-    element.children(child).css({
-        'height': element.children(child).height(),
-        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
-        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
-    });
-}
-
-function clearStyles(element, child) {
-    element.attr('style', '');
-    child.attr('style', '');
-}
-
-// Function applied to the following parent/child classes:
-// vertCenter($('.o-vert-center'), '.o-vert-center__object');
-
-// On window resize clear previous styles then re-run the function.
-$(window).on('resize', function() {
-    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
-    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
-});
-
-
-//
-// UI - Buttons
-// ==========================================================================
-
-// Variables
-// var gitButton = document.getElementById('js-button-github');
-
-// gitButton.addEventListener('click', function(){
-//     window.open('https://github.com/Toshibot/webapp-boilerplate', '_blank');
-// });
-
 
 function dateTime(d) {
 
@@ -338,13 +196,13 @@ function fixtureItem(array) {
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
                     '<img class="js-team-img" src="' + kitImg(array.homeTeam.name, array.awayTeam.name, "Home") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.homeTeam.name) + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.homeTeam.name)[0].code + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.score.fullTime.homeTeam + '</span>' +
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
                     '<img class="js-team-img" src="' + kitImg(array.homeTeam.name, array.awayTeam.name, "Away") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.awayTeam.name) + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.awayTeam.name)[0].code + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.score.fullTime.awayTeam + '</span>' +
                 '</div>' +
                 '<div class="c-fixture__venue js-fixture-venue">' + '</div>' +
@@ -363,13 +221,13 @@ function fixtureItem(array) {
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
                     '<img class="js-team-img" src="' + kitImg(array.homeTeam.name, array.awayTeam.name, "Home") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.homeTeam.name) + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.homeTeam.name)[0].code + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.score.fullTime.homeTeam + '</span>' +
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
                     '<img class="js-team-img" src="' + kitImg(array.homeTeam.name, array.awayTeam.name, "Away") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.awayTeam.name) + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.awayTeam.name)[0].code + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.score.fullTime.awayTeam + '</span>' +
                 '</div>' +
                 '<div class="c-fixture__venue js-fixture-venue">' + '</div>' +
@@ -388,13 +246,13 @@ function fixtureItem(array) {
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
                     '<img class="js-team-img" src="' + kitImg(array.homeTeam.name, array.awayTeam.name, "Home") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.homeTeam.name) + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.homeTeam.name)[0].code + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.score.fullTime.homeTeam + '</span>' +
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
                     '<img class="js-team-img" src="' + kitImg(array.homeTeam.name, array.awayTeam.name, "Away") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.awayTeam.name) + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.awayTeam.name)[0].code + '</span>' +
                     '<span class="c-fixture__score js-score-text">' + array.score.fullTime.awayTeam + '</span>' +
                 '</div>' +
                 '<div class="c-fixture__venue js-fixture-venue">' + '</div>' +
@@ -413,13 +271,13 @@ function fixtureItem(array) {
                 '</div >' +
                 '<div class="c-fixture__team js-fixture-team-1">' +
                     '<img class="js-team-img" src="' + kitImg(array.homeTeam.name, array.awayTeam.name, "Home") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.homeTeam.name) + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.homeTeam.name)[0].code + '</span>' +
                     '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
                 '<div class="c-fixture__vs">vs</div>' +
                 '<div class="c-fixture__team js-fixture-team-2">' +
                     '<img class="js-team-img" src="' + kitImg(array.homeTeam.name, array.awayTeam.name, "Away") + '" />' +
-                    '<span class="js-team-text">' + teamAbrev(array.awayTeam.name) + '</span>' +
+                    '<span class="js-team-text">' + teamAbrev(array.awayTeam.name)[0].code + '</span>' +
                     '<span class="c-fixture__score js-score-text">-</span>' +
                 '</div>' +
                 '<div class="c-fixture__venue js-fixture-venue">' + '</div>' +
@@ -660,7 +518,7 @@ function kitImg(homename,awayname,location){
 
 // Constructs the ladder Items
 function ladderItem(array, number) {
-    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(array.team.name);  
+    $('.c-ladder__item-' + number + ' div.c-ladder__team').children('span').text(teamAbrev(array.team.name)[0].name);  
     $('.c-ladder__item-' + number + ' div.c-ladder__team').children('img').attr('src', teamImg(array.team.name));  
     $('.c-ladder__item-' + number + ' div.c-ladder__played').text(array.playedGames);
     $('.c-ladder__item-' + number + ' div.c-ladder__wins').text(array.won);
@@ -739,45 +597,105 @@ function teamAbrev(array){
     var team = array;
 
     if (team == 'Wolverhampton Wanderers FC') {
-        return 'WOL';
+        return [{
+            code: 'WOL',
+            name: 'Wolves'
+        }];
     } else if (team == 'Fulham FC') {
-        return 'FUL';
+        return [{
+            code: 'FUL',
+            name: 'Fulham'
+        }];
     } else if (team == 'Liverpool FC') {
-        return 'LIV';
+        return [{
+            code: 'LIV',
+            name: 'Liverpool'
+        }];
     } else if (team == 'Manchester City FC') {
-        return 'MCI';
+        return [{
+            code: 'MCI',
+            name: 'Man City'
+        }];
     } else if (team == 'Newcastle United FC') {
-        return 'NEW';
+        return [{
+            code: 'NEW',
+            name: 'Newcastle'
+        }];
     } else if (team == 'Arsenal FC') {
-        return 'ARS';
+        return [{
+            code: 'ARS',
+            name: 'Arsenal'
+        }];
     } else if (team == 'Chelsea FC') {
-        return 'CHE';
+        return [{
+            code: 'CHE',
+            name: 'Chelsea'
+        }];
     } else if (team == 'Tottenham Hotspur FC') {
-        return 'TOT';
+        return [{
+            code: 'TOT',
+            name: 'Totenham'
+        }];
     } else if (team == 'Everton FC') {
-        return 'EVE';
+        return [{
+            code: 'EVE',
+            name: 'Everton'
+        }];
     } else if (team == 'Manchester United FC') {
-        return 'MUN';
+        return [{
+            code: 'MUN',
+            name: 'Man United'
+        }];
     } else if (team == 'Leicester City FC') {
-        return 'LEI';
+        return [{
+            code: 'LEI',
+            name: 'Leicester'
+        }];
     } else if (team == 'Burnley FC') {
-        return 'BUR';
+        return [{
+            code: 'BUR',
+            name: 'Burnley'
+        }];
     } else if (team == 'Huddersfield Town AFC') {
-        return 'HUD';
+        return [{
+            code: 'HUD',
+            name: 'Huddersfield'
+        }];
     } else if (team == 'Cardiff City FC') {
-        return 'CAR';
+        return [{
+            code: 'CAR',
+            name: 'Cardiff'
+        }];
     } else if (team == 'West Ham United FC') {
-        return 'WHU';
+        return [{
+            code: 'WHU',
+            name: 'West Ham'
+        }];
     } else if (team == 'Southampton FC') {
-        return 'SOU';
+        return [{
+            code: 'SOU',
+            name: 'Southampton'
+        }];
     } else if (team == 'Crystal Palace FC') {
-        return 'CRY';
+        return [{
+            code: 'CRY',
+            name: 'Crystal Palace'
+        }];
     } else if (team == 'Brighton & Hove Albion FC') {
-        return 'BHA';
+        return [{
+            code: 'BHA',
+            name: 'Brighton'
+        }];
     } else if (team == 'Watford FC') {
-        return 'WAT';
+        return [{
+            code: 'WAT',
+            name: 'Watford'
+        }];
     } else if (team == 'AFC Bournemouth') {
-        return 'BOU';
+        return [{
+            code: 'BOU',
+            name: 'Bournemouth'
+        }];
     }
 }
 
@@ -825,3 +743,67 @@ function teamImg(team) {
         return 'img/teams/BOU/Logo.png';
     }
 }
+//
+// Layout - Vertically Centered
+// ==========================================================================
+
+// ***
+// This function vertically centers an object element within 
+// its parent element by calculating the height of the parent,
+// the height of the child and adding padding to the top and 
+// bottom of the child element.
+//
+// Parent Element
+// --------------
+// The parent element must be a jQuery object.
+// eg: $('.o-vert-center')
+//
+// Child Element
+// -------------
+// The child element must be a direct child of the parent and
+// be passed through the function with only its classname.
+// eg: '.o-vert-center__object'
+// *
+
+function vertCenter(element, child) {
+
+    var parentHeight = element.parent().height();
+    // This will give the element the same height
+    // and line-height as it's parent container.
+    element.css({
+        'height': parentHeight + 'px',
+        'line-height': parentHeight + 'px'
+    });
+    
+    element.children(child).css({
+        'height': element.children(child).height(),
+        'padding-top': ( parentHeight - element.children(child).height() )/2 + 'px',
+        'padding-bottom': ( parentHeight - element.children(child).height() )/2 + 'px'
+    });
+}
+
+function clearStyles(element, child) {
+    element.attr('style', '');
+    child.attr('style', '');
+}
+
+// Function applied to the following parent/child classes:
+// vertCenter($('.o-vert-center'), '.o-vert-center__object');
+
+// On window resize clear previous styles then re-run the function.
+$(window).on('resize', function() {
+    // clearStyles($('.o-vert-center'), $('.o-vert-center__object'));
+    // vertCenter($('.o-vert-center'), '.o-vert-center__object');
+});
+
+
+//
+// UI - Buttons
+// ==========================================================================
+
+// Variables
+// var gitButton = document.getElementById('js-button-github');
+
+// gitButton.addEventListener('click', function(){
+//     window.open('https://github.com/Toshibot/webapp-boilerplate', '_blank');
+// });

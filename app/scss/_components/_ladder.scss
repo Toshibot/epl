@@ -164,16 +164,22 @@
             }
         }
 
-        &__played,
         &__wins,
         &__losses,
-        &__draws,
-        &__percentage {
+        &__draws {
             display: none !important;
         }
 
+        &__played {
+            margin-left: $width-1/2;
+        }
+
+        &__percentage {
+            margin-right: $width-1/2;
+        }
+
         &__team {
-            @include flex-size($width-10);
+            @include flex-size($width-7);
         }
     }
 }

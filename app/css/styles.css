@@ -1571,13 +1571,17 @@ body {
     padding-right: 0; }
   .c-ladder__item div:nth-child(even) {
     background: transparent; }
-  .c-ladder__played, .c-ladder__wins, .c-ladder__losses, .c-ladder__draws, .c-ladder__percentage {
+  .c-ladder__wins, .c-ladder__losses, .c-ladder__draws {
     display: none !important; }
+  .c-ladder__played {
+    margin-left: 4.1665%; }
+  .c-ladder__percentage {
+    margin-right: 4.1665%; }
   .c-ladder__team {
-    -ms-flex-preferred-size: 83.333%;
-    -webkit-flex-basis: 83.333%;
-    flex-basis: 83.333%;
-    max-width: 83.333%; } }
+    -ms-flex-preferred-size: 58.333%;
+    -webkit-flex-basis: 58.333%;
+    flex-basis: 58.333%;
+    max-width: 58.333%; } }
 
 @media screen and (min-width: 75em) {
   .c-fixture h2 {

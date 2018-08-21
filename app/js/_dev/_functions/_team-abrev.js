@@ -2,44 +2,104 @@ function teamAbrev(array){
     var team = array;
 
     if (team == 'Wolverhampton Wanderers FC') {
-        return 'WOL';
+        return [{
+            code: 'WOL',
+            name: 'Wolves'
+        }];
     } else if (team == 'Fulham FC') {
-        return 'FUL';
+        return [{
+            code: 'FUL',
+            name: 'Fulham'
+        }];
     } else if (team == 'Liverpool FC') {
-        return 'LIV';
+        return [{
+            code: 'LIV',
+            name: 'Liverpool'
+        }];
     } else if (team == 'Manchester City FC') {
-        return 'MCI';
+        return [{
+            code: 'MCI',
+            name: 'Man City'
+        }];
     } else if (team == 'Newcastle United FC') {
-        return 'NEW';
+        return [{
+            code: 'NEW',
+            name: 'Newcastle'
+        }];
     } else if (team == 'Arsenal FC') {
-        return 'ARS';
+        return [{
+            code: 'ARS',
+            name: 'Arsenal'
+        }];
     } else if (team == 'Chelsea FC') {
-        return 'CHE';
+        return [{
+            code: 'CHE',
+            name: 'Chelsea'
+        }];
     } else if (team == 'Tottenham Hotspur FC') {
-        return 'TOT';
+        return [{
+            code: 'TOT',
+            name: 'Totenham'
+        }];
     } else if (team == 'Everton FC') {
-        return 'EVE';
+        return [{
+            code: 'EVE',
+            name: 'Everton'
+        }];
     } else if (team == 'Manchester United FC') {
-        return 'MUN';
+        return [{
+            code: 'MUN',
+            name: 'Man United'
+        }];
     } else if (team == 'Leicester City FC') {
-        return 'LEI';
+        return [{
+            code: 'LEI',
+            name: 'Leicester'
+        }];
     } else if (team == 'Burnley FC') {
-        return 'BUR';
+        return [{
+            code: 'BUR',
+            name: 'Burnley'
+        }];
     } else if (team == 'Huddersfield Town AFC') {
-        return 'HUD';
+        return [{
+            code: 'HUD',
+            name: 'Huddersfield'
+        }];
     } else if (team == 'Cardiff City FC') {
-        return 'CAR';
+        return [{
+            code: 'CAR',
+            name: 'Cardiff'
+        }];
     } else if (team == 'West Ham United FC') {
-        return 'WHU';
+        return [{
+            code: 'WHU',
+            name: 'West Ham'
+        }];
     } else if (team == 'Southampton FC') {
-        return 'SOU';
+        return [{
+            code: 'SOU',
+            name: 'Southampton'
+        }];
     } else if (team == 'Crystal Palace FC') {
-        return 'CRY';
+        return [{
+            code: 'CRY',
+            name: 'Crystal Palace'
+        }];
     } else if (team == 'Brighton & Hove Albion FC') {
-        return 'BHA';
+        return [{
+            code: 'BHA',
+            name: 'Brighton'
+        }];
     } else if (team == 'Watford FC') {
-        return 'WAT';
+        return [{
+            code: 'WAT',
+            name: 'Watford'
+        }];
     } else if (team == 'AFC Bournemouth') {
-        return 'BOU';
+        return [{
+            code: 'BOU',
+            name: 'Bournemouth'
+        }];
     }
 }
