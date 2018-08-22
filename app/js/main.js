@@ -3,8 +3,7 @@
 // ==========================================================================
 
 // Core Functions 
-dataLadder();
-dataFixture();
+data();
 // ==========================================================================
 // Fixture - Functions
 // ==========================================================================
@@ -12,34 +11,28 @@ dataFixture();
 
 // Data - Fixture/Results
 
-function dataFixture() {
+function dataFixture(self) {
+    
+    // Variables
+    var matchday = [];
+    self.matchesURI = "https://api.football-data.org/v2/competitions/2021/matches";
+    self.matchdayURI = "https://api.football-data.org/v2/competitions";
 
-    var self = this;
-    self.tasksURI = "https://api.football-data.org/v2/competitions/2021/matches";
+    // Matchday
+    // self.ajax(self.matchdayURI, 'GET').done(function(data){
 
-    self.ajax = function(uri, method, data) {
-        var request = {
-            url: uri,
-            type: method,
-            accepts: "application/json",
-            cache: false,
-            dataType: "json",
-            data: JSON.stringify(data),
-            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
-            error: function (jqXHR) {
-                console.log("ajax error " + jqXHR.status);
-            }
+    //     for (i = 0; i < data.competitions.length; i++) {
+    //         const element = data.competitions[i];
+    //         if (element.id == 2021) {
+    //             matchday.push(element.currentSeason.currentMatchday);
+    //         }
+    //     }
+    // });
 
-        };
-
-        return $.ajax(request);
-    }
-
-    self.ajax(self.tasksURI, 'GET').done(function(data) {
+    self.ajax(self.matchesURI, 'GET').done(function(data) {
 
         var matches = data.matches;
         var today = new Date;
-        var testDate = new Date('2018-04-24');
         var currentRound = [];
         var currentRoundNo = roundCalc(today);
 
@@ -68,28 +61,10 @@ function dataFixture() {
 //
 // Data
 // ====
-function dataLadder() { 
+function dataLadder(self) { 
 
-    var self = this;
     self.tasksURI = "https://api.football-data.org/v2/competitions/2021/standings";
 
-    self.ajax = function(uri, method, data) {
-        var request = {
-            url: uri,
-            type: method,
-            accepts: "application/json",
-            cache: false,
-            dataType: "json",
-            data: JSON.stringify(data),
-            headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
-            error: function (jqXHR) {
-                console.log("ajax error " + jqXHR.status);
-            }
-
-        };
-
-        return $.ajax(request);
-    }
 
     self.ajax(self.tasksURI, 'GET').done(function(data) {
         // console.log(data);
@@ -104,6 +79,31 @@ function dataLadder() {
         }
     })
 
+}
+function data() {
+   
+   var self = this;
+
+   self.ajax = function(uri, method, data) {
+       var request = {
+           url: uri,
+           type: method,
+           accepts: "application/json",
+           cache: false,
+           dataType: "json",
+           data: JSON.stringify(data),
+           headers: {"X-Auth-Token": "679038679bcd4b3b9c49b464f45cd8fc"},
+           error: function (jqXHR) {
+               console.log("ajax error " + jqXHR.status);
+           }
+
+       };
+
+       return $.ajax(request);
+   }
+
+   dataLadder(self);
+   dataFixture(self);
 }
 
 function dateTime(d) {
