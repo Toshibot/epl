@@ -116,8 +116,8 @@ function kitImg(homename,awayname,location){
 
         // Chelsea FC - Yellow
         } else if (awayname == "Chelsea FC") {
-            if (homename == "Wolverhampton Wanderers FC") {
-                return 'img/teams/CHE/Home.png';
+            if (homename == "Wolverhampton Wanderers FC" || homename == "Watford FC") {
+                return 'img/teams/CHE/Third.png';
             } else {
                 return 'img/teams/CHE/Away.png';
             }
