@@ -138,10 +138,10 @@ function kitImg(homename,awayname,location){
                 return 'img/teams/EVE/Away.png';
             }
 
-        // Manchester United FC - Navy Blue
+        // Manchester United FC - Light Pink (White)
         } else if (awayname == "Manchester United FC") {
-            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
-                return 'img/teams/MUN/Home.png';
+            if (homename == "Fulham FC" || homename == "Tottenham Hotspur FC") {
+                return 'img/teams/MUN/Third.png';
             } else {
                 return 'img/teams/MUN/Away.png';
             }
