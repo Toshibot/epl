@@ -133,7 +133,7 @@ function kitImg(homename,awayname,location){
         // Everton FC - Black
         } else if (awayname == "Everton FC") {
             if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
-                return 'img/teams/EVE/Home.png';
+                return 'img/teams/EVE/Third.png';
             } else {
                 return 'img/teams/EVE/Away.png';
             }
