@@ -100,7 +100,7 @@ function kitImg(homename,awayname,location){
 
         // Newcastle United FC - Navy & Red
         } else if (awayname == 'Newcastle United FC') {
-            if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC" || homename == 'West Ham United FC' || homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC") {
+            if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC" || homename == 'West Ham United FC' || homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC" || homename == "Crystal Palace FC") {
                 return 'img/teams/NEW/Third.png';
             } else {
                 return 'img/teams/NEW/Away.png';
