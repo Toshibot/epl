@@ -610,14 +610,36 @@ function roundCalc(d) {
         return 14;
 
     // Gameday 15
-    } else if (year == "2018" && month == 11 && date <= 12){
+    } else if (year == "2018" && month == 11 && date <= 5){
         return 15;
 
     // Gameday 16
-    } else if (year == "2018" && month == 11 && date <= 26){
+    } else if (year == "2018" && month == 11 && date <= 10){
         return 16;
 
+    // Gameday 17
+    } else if (year == "2018" && month == 11 && date <= 16){
+        return 17;
+
+    // Gameday 18
+    } else if (year == "2018" && month == 11 && date <= 23){
+        return 18;
+
+    // Gameday 19
+    } else if (year == "2018" && month == 11 && date <= 27){
+        return 19;
+
+    // Gameday 20
+    } else if (year == "2018" && month == 11 && date <= 30){
+        return 20;
+
+    // Gameday 21
+    } else if (year == "2019" && month == 0 && date <= 3){
+        return 21;
+
     }
+
+    
 }
 function teamAbrev(array){
     var team = array;
