@@ -38,22 +38,24 @@ function dataFixture() {
     }
 
     // Matchday
-    // self.ajax(self.matchdayURI, 'GET').done(function(data){
+    self.ajax(self.matchdayURI, 'GET').done(function(data){
+        var competitions = data.competitions;
 
-    //     for (i = 0; i < data.competitions.length; i++) {
-    //         const element = data.competitions[i];
-    //         if (element.id == 2021) {
-    //             matchday.push(element.currentSeason.currentMatchday);
-    //         }
-    //     }
-    // });
+        for (i = 0; i < competitions.length; i++) {
+            const comp = competitions[i];
+            
+            if (comp.id == 2021) {
+                matchday.push(comp.currentSeason.currentMatchday);
+            }
+        }
+    });
 
     self.ajax(self.matchesURI, 'GET').done(function(data) {
 
         var matches = data.matches;
         var today = new Date;
         var currentRound = [];
-        var currentRoundNo = roundCalc(today);
+        var currentRoundNo = matchday[0];
 
         $('.js-fixture-round').text("Matchday " + currentRoundNo);
 
