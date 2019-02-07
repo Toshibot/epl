@@ -104,6 +104,10 @@ function roundCalc(d) {
     } else if (year == "2019" && month == 1 && date <= 2){
         return 25;
 
+    // Gameday 26
+    } else if (year == "2019" && month == 1 && date <= 12){
+        return 26;
+
     }
 
     

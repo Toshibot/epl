@@ -48,6 +48,8 @@ function dataFixture() {
                 matchday.push(comp.currentSeason.currentMatchday);
             }
         }
+
+        console.log(matchday);
     });
 
     self.ajax(self.matchesURI, 'GET').done(function(data) {
@@ -55,7 +57,7 @@ function dataFixture() {
         var matches = data.matches;
         var today = new Date;
         var currentRound = [];
-        var currentRoundNo = matchday[0];
+        var currentRoundNo = roundCalc(today);
 
         $('.js-fixture-round').text("Matchday " + currentRoundNo);
 
@@ -654,6 +656,10 @@ function roundCalc(d) {
     // Gameday 25
     } else if (year == "2019" && month == 1 && date <= 2){
         return 25;
+
+    // Gameday 26
+    } else if (year == "2019" && month == 1 && date <= 12){
+        return 26;
 
     }
 

@@ -38,6 +38,8 @@ function dataFixture() {
                 matchday.push(comp.currentSeason.currentMatchday);
             }
         }
+
+        console.log(matchday);
     });
 
     self.ajax(self.matchesURI, 'GET').done(function(data) {
@@ -45,7 +47,7 @@ function dataFixture() {
         var matches = data.matches;
         var today = new Date;
         var currentRound = [];
-        var currentRoundNo = matchday[0];
+        var currentRoundNo = roundCalc(today);
 
         $('.js-fixture-round').text("Matchday " + currentRoundNo);
 
