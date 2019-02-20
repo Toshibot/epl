@@ -4,8 +4,8 @@
   "description": "Webapp Boilderplate =========================",
   "main": "gulpfile.js",
   "dependencies": {
-    "browser-sync": "^2.16.0",
-    "chart.js": "^2.2.2",
+    "browser-sync": "^2.26.3",
+    "chart.js": "^2.7.3",
     "gulp": "^3.9.1",
     "gulp-cli": "^1.2.2"
   },
@@ -21,7 +21,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.0.0",
-    "gulp-useref": "^3.1.2",
+    "gulp-useref": "^3.1.6",
     "pump": "^1.0.1",
     "run-sequence": "^1.2.2"
   },
