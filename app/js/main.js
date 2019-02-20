@@ -57,7 +57,7 @@ function dataFixture() {
         var matches = data.matches;
         var today = new Date;
         var currentRound = [];
-        var currentRoundNo = roundCalc(today);
+        var currentRoundNo = matchday[0];
 
         $('.js-fixture-round').text("Matchday " + currentRoundNo);
 
