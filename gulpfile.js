@@ -83,7 +83,7 @@ gulp.task('build-css', function(callback) {
 
 // Concatenate JS Files into one main.js file
 gulp.task('concat', function () {
-    return gulp.src(['app/js/_dev/**/*.js'])
+    return gulp.src(['app/js/_dev/**/*.{js}'])
         .pipe(concat('main.js'))
         .pipe(gulp.dest('app/js'));
 });
