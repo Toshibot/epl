@@ -4,14 +4,19 @@
   "description": "Webapp Boilderplate =========================",
   "main": "gulpfile.js",
   "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-react-app": "^3.1.2",
     "browser-sync": "^2.26.3",
     "chart.js": "^2.7.3",
-    "gulp": "^3.9.1",
-    "gulp-cli": "^1.2.2"
+    "gulp-cli": "^2.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.3",
+    "@babel/preset-env": "^7.3.1",
     "concat": "0.0.1-security",
     "del": "^2.2.2",
+    "gulp": "^4.0.0",
+    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^2.0.13",
     "gulp-concat": "^2.6.0",
     "gulp-connect-php": "0.0.8",
@@ -23,15 +28,23 @@
     "gulp-uglify": "^2.0.0",
     "gulp-useref": "^3.1.6",
     "pump": "^1.0.1",
-    "run-sequence": "^1.2.2"
+    "run-sequence": "^2.2.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Toshibot/webapp-boilerplate.git"
+    "url": "git+https://github.com/Toshibot/webapp-boilerplate.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Toshibot/webapp-boilerplate/issues"
+  },
+  "homepage": "https://github.com/Toshibot/webapp-boilerplate#readme",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": []
 }
