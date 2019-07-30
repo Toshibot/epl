@@ -41,5 +41,11 @@ function teamImg(team) {
         return 'img/teams/WAT/Logo.png';
     } else if (team == 'AFC Bournemouth') {
         return 'img/teams/BOU/Logo.png';
+    } else if (team == 'Norwich City FC') {
+        return 'img/teams/NOR/Logo.png';
+    } else if (team == 'Sheffield United FC') {
+        return 'img/teams/SHE/Logo.png';
+    } else if (team == 'Aston Villa FC') {
+        return 'img/teams/AVI/Logo.png';
     }
 }

@@ -60,9 +60,17 @@ function kitImg(homename,awayname,location){
 
         } else if (homename == 'AFC Bournemouth') {
             return 'img/teams/BOU/Home.png';
+        
+        } else if (homename == 'Norwich City FC') {
+            return 'img/teams/NOR/Home.png';
+        
+        } else if (homename == 'Sheffield United FC') {
+            return 'img/teams/SHE/Home.png';
+        
+        } else if (homename == 'Aston Villa FC') {
+            return 'img/teams/AVI/Home.png';
+        
         }
-
-    // Away Team Kit Switching
 
     } else if (location == "Away") {
 
@@ -225,6 +233,31 @@ function kitImg(homename,awayname,location){
             } else {
                 return 'img/teams/BOU/Away.png';
             }
+        
+        // Norwich City FC - Red
+        } else if (awayname == 'Norwich City FC') {
+            if (homename == "Arsenal FC" || homename == "Liverpool FC" || homename == "Manchester United FC" || homename == "West Ham United FC" || homename == "Sheffield United FC" || homename == "Aston Villa FC" || homename == "AFC Bournemouth" || homename == "Southampton FC") {
+                return 'img/teams/NOR/Home.png';
+            } else {
+                return 'img/teams/NOR/Away.png';
+            }
+        
+        // Sheffield United FC - White
+        } else if (awayname == 'Sheffield United FC') {
+            if (homename == "Fulham FC" || homename == "Tottenham Hotspur FC" || homename == "Manchester City FC") {
+                return 'img/teams/SHE/Home.png';
+            } else {
+                return 'img/teams/SHE/Away.png';
+            }
+        
+        // Aston Villa - Light Blue 
+        } else if (awayname == 'Aston Villa FC') {
+            if (homename == "Fulham FC" || homename == "Tottenham Hotspur FC" || homename == "Manchester City FC") {
+                return 'img/teams/AVI/Home.png';
+            } else {
+                return 'img/teams/AVI/Away.png';
+            }
+        
         }
     }
 }

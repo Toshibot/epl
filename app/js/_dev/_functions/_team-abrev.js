@@ -101,5 +101,20 @@ function teamAbrev(array){
             code: 'BOU',
             name: 'Bournemouth'
         }];
+    } else if (team == 'Norwich City FC') {
+        return [{
+            code: 'NOR',
+            name: 'Norwich Cty'
+        }];
+    } else if (team == 'Sheffield United FC') {
+        return [{
+            code: 'SHE',
+            name: 'Sheffield Utd'
+        }];
+    } else if (team == 'Aston Villa FC') {
+        return [{
+            code: 'AVI',
+            name: 'Aston Villa'
+        }];
     }
 }
