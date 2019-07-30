@@ -90,9 +90,9 @@ function kitImg(homename,awayname,location){
                 return 'img/teams/FUL/Away.png';
             }
 
-        // Liverpool FC - Purple (Blue & Black)
+        // Liverpool FC - White
         } else if (awayname == "Liverpool FC") {
-            if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC" || homename == "Crystal Palace FC") {
+            if (homename == "Tottenham Hotspur FC" || homename == "Manchester City FC") {
                 return 'img/teams/LIV/Third.png';
             } else {
                 return 'img/teams/LIV/Away.png';
