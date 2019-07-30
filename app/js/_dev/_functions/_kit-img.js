@@ -98,7 +98,7 @@ function kitImg(homename,awayname,location){
                 return 'img/teams/LIV/Away.png';
             }
 
-        // Manchester City FC - Navy Blue
+        // Manchester City FC - Black
         } else if (awayname == "Manchester City FC") {
             if (homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC"){
                 return 'img/teams/MCI/Home.png';
@@ -122,10 +122,10 @@ function kitImg(homename,awayname,location){
                 return 'img/teams/ARS/Away.png';
             }
 
-        // Chelsea FC - Yellow
+        // Chelsea FC - White
         } else if (awayname == "Chelsea FC") {
-            if (homename == "Wolverhampton Wanderers FC" || homename == "Watford FC") {
-                return 'img/teams/CHE/Third.png';
+            if (homename == "Tottenham Hotspur FC" || homename == "Manchester City FC") {
+                return 'img/teams/CHE/Home.png';
             } else {
                 return 'img/teams/CHE/Away.png';
             }
@@ -146,10 +146,10 @@ function kitImg(homename,awayname,location){
                 return 'img/teams/EVE/Away.png';
             }
 
-        // Manchester United FC - Light Pink (White)
+        // Manchester United FC - Light Orange (White)
         } else if (awayname == "Manchester United FC") {
-            if (homename == "Fulham FC" || homename == "Tottenham Hotspur FC") {
-                return 'img/teams/MUN/Third.png';
+            if (homename == "Tottenham Hotspur FC" || homename == "Manchester City FC") {
+                return 'img/teams/MUN/Home.png';
             } else {
                 return 'img/teams/MUN/Away.png';
             }
