@@ -71,7 +71,7 @@ function css_plugins() {
 }
 
 // CSS Build Sequence - Compile Sass, then Minify CSS
-const styles = gulp.series(scss, css, css_plugins);
+const styles = gulp.series(scss, css);
 
 //
 // JS
@@ -81,19 +81,23 @@ const styles = gulp.series(scss, css, css_plugins);
 // ======
 
 // Concatenate JS Files into one main.js file
-function js_concat() {
-    return gulp
+function js_concat(done) {
+    gulp
         .src(['./app/js/_dev/**/*.js'])
         .pipe(concat('main.js'))
         .pipe(gulp.dest('./app/js'));
+
+    done();
 }
 
 // Compress and migrate main.js file
-function js_compress() {
-    return gulp.src('./app/js/main.js')
+function js_compress(done) {
+    gulp.src('./app/js/main.js')
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('./docs/js'));
+
+    done();
 }
 
 // Migrate JS Plugins
@@ -106,7 +110,7 @@ function js_plugins(done) {
 }
 
 // JS Build Sequence
-const scripts = gulp.series(js_concat, js_compress, js_plugins);
+const scripts = gulp.series(js_concat, js_compress);
 
 
 //
@@ -149,7 +153,7 @@ function data() {
 }
 
 // Migration Sequence
-const assets = gulp.series(fonts, html, images, icons, data);
+const assets = gulp.series(fonts, html, images, icons, data, js_plugins, css_plugins);
 
 //
 // Watch
@@ -160,7 +164,7 @@ function watch_files() {
     gulp.watch('./app/scss/**/*.scss', styles);
 
     // Watch JS Files for Changes
-    gulp.watch('./app/js/**/*.js', scripts);
+    gulp.watch('./app/js/_dev/**/*.js', scripts);
 
     // Watch HTML, HTM and PHP files for Changes
     gulp.watch('app/*.{html,htm,php}', html);
