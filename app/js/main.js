@@ -415,7 +415,7 @@ function kitImg(homename,awayname,location){
                 return 'img/teams/MCI/Away.png';
             }
 
-        // Newcastle United FC - Navy & Red
+        // Newcastle United FC - Dark Blue
         } else if (awayname == 'Newcastle United FC') {
             if (homename == "Manchester United FC" || homename == "Liverpool FC" || homename == "Arsenal FC" || homename == "AFC Bournemouth" || homename == "Watford FC" || homename == 'West Ham United FC' || homename == "Chelsea FC" || homename == "Leicester City FC" || homename == "Cardiff City FC" || homename == "Everton FC" || homename == "Crystal Palace FC") {
                 return 'img/teams/NEW/Third.png';
