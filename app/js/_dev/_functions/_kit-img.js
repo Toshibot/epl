@@ -148,7 +148,7 @@ function kitImg(homename,awayname,location){
 
         // Manchester United FC - Light Orange (White)
         } else if (awayname == "Manchester United FC") {
-            if (homename == "Tottenham Hotspur FC" || homename == "Manchester City FC") {
+            if (homename == "Tottenham Hotspur FC" || homename == "Manchester City FC" || homename == "Wolverhampton Wanderers FC") {
                 return 'img/teams/MUN/Home.png';
             } else {
                 return 'img/teams/MUN/Away.png';
